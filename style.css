@@ -2329,92 +2329,519 @@ p {
    END OF CSS
    ANKIT ❤️ SULOCHANA
    ========================================================== */
-/* ===== DARK PINK ROMANTIC THEME ===== */
+/* ==========================================================
+   DARK PINK ROMANTIC THEME
+   OUR LITTLE FOREVER
+   ANKIT ❤️ SULOCHANA
+   ========================================================== */
 
 :root {
-    --dark-bg: #10070d;
-    --dark-pink: #2b0d20;
-    --deep-pink: #7d214e;
-    --rose-pink: #e85d91;
-    --soft-pink: #ff9cbd;
-    --light-pink: #ffd6e4;
+  --dark-bg: #10070d;
+  --dark-section: #170a12;
+  --dark-card: #24101c;
+  --dark-card-light: #301426;
+  --deep-pink: #7d214e;
+  --rose-pink: #e85d91;
+  --soft-pink: #ff9cbd;
+  --light-pink: #ffd6e4;
+  --dark-text: #ffe8f0;
+  --muted-dark: #d6a9bc;
 }
 
-/* Main website background */
+/* MAIN BACKGROUND */
+
+html {
+  background: var(--dark-bg);
+}
+
 body {
-    background: #10070d !important;
-    color: #ffe8f0;
+  background: var(--dark-bg) !important;
+  color: var(--dark-text);
 }
 
-/* Hero / Our Little Forever section */
-.hero,
-#hero,
-.hero-section {
-    background:
-        radial-gradient(ellipse at 50% 35%, rgba(190, 42, 105, 0.20), transparent 65%),
-        linear-gradient(145deg, #10070d, #210b19 55%, #120710) !important;
+/* PAGE BACKGROUNDS */
+
+.page,
+.welcome-page,
+.calendar-page,
+.nickname-page,
+.birthday-page {
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(190, 42, 105, 0.18),
+      transparent 65%
+    ),
+    linear-gradient(145deg, #10070d, #210b19 55%, #120710) !important;
 }
 
-/* Romantic heading */
-h1, h2 {
-    color: #ffb0cc;
-    text-shadow: 0 0 18px rgba(232, 93, 145, 0.25);
+/* CONTENT SECTIONS */
+
+.content-section,
+.content-section:nth-child(even),
+.content-section:nth-child(odd) {
+  background: var(--dark-section) !important;
+  color: var(--dark-text);
 }
 
-/* Small section labels */
-.section-label,
-.eyebrow,
-.subtitle {
-    color: #e88aaa;
+/* HEADINGS */
+
+h1,
+h2,
+h3,
+.section-heading h2,
+.welcome-title,
+.birthday-heading {
+  color: var(--soft-pink);
+  text-shadow: 0 0 18px rgba(232, 93, 145, 0.22);
 }
 
-/* Buttons */
-button,
-.btn {
-    background: linear-gradient(135deg, #a52e63, #e85d91) !important;
-    color: #fff !important;
-    border: 1px solid rgba(255, 180, 210, 0.25);
-    box-shadow: 0 5px 22px rgba(232, 93, 145, 0.18);
+/* TEXT */
+
+p,
+.welcome-description,
+.calendar-description,
+.section-heading > p:last-child {
+  color: var(--muted-dark);
 }
 
-button:hover,
-.btn:hover {
-    background: linear-gradient(135deg, #c83c79, #ff80ad) !important;
-    transform: translateY(-2px);
+.section-tag,
+.welcome-small-text,
+.welcome-footer {
+  color: var(--rose-pink);
 }
 
-/* Cards and content boxes */
-.card,
-.memory-card,
-.content-card {
-    background: rgba(43, 13, 32, 0.85);
-    border: 1px solid rgba(232, 93, 145, 0.20);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+/* BUTTONS */
+
+.romantic-btn,
+.album-open-btn,
+.album-controls button,
+#musicToggle {
+  background: linear-gradient(135deg, #a52e63, #e85d91);
+  color: #fff;
+  border: 1px solid rgba(255, 180, 210, 0.25);
+  box-shadow: 0 5px 22px rgba(232, 93, 145, 0.18);
 }
 
-/* Paragraphs */
-p {
-    color: #e8c8d5;
+.romantic-btn:hover,
+.album-open-btn:hover,
+.album-controls button:hover,
+#musicToggle:hover {
+  background: linear-gradient(135deg, #c83c79, #ff80ad);
 }
 
-/* Links */
+.secondary-btn {
+  background: var(--dark-card);
+  color: var(--soft-pink);
+  border-color: var(--rose-pink);
+}
+
+.secondary-btn:hover {
+  background: var(--deep-pink);
+  color: white;
+}
+
+/* CARDS */
+
+.calendar-card,
+.question-card,
+.timeline-card,
+.timeline-ending,
+.love-letter,
+.reason-front,
+.dream-card,
+.gift-message,
+.jar-message,
+.nickname-result {
+  background: var(--dark-card) !important;
+  color: var(--dark-text);
+  border: 1px solid rgba(232, 93, 145, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* CALENDAR */
+
+.nepali-calendar {
+  background: #1d0c16;
+  border-color: #5d2440;
+}
+
+.calendar-header select {
+  background: #301426;
+  color: var(--dark-text);
+  border-color: #7d214e;
+}
+
+.calendar-day {
+  background: #301426;
+  color: var(--dark-text);
+  border-color: #5d2440;
+}
+
+.calendar-day:hover {
+  background: #7d214e;
+}
+
+.calendar-day.selected {
+  background: var(--rose-pink);
+  color: white;
+}
+
+/* NICKNAME OPTIONS */
+
+.nickname-btn {
+  background: #301426;
+  color: var(--soft-pink);
+  border-color: #7d214e;
+}
+
+.nickname-btn:hover,
+.nickname-btn.selected {
+  background: var(--deep-pink);
+  color: white;
+}
+
+/* BIRTHDAY PAGE */
+
+.birthday-page {
+  background:
+    radial-gradient(circle at center, rgba(232, 93, 145, 0.25), transparent 70%),
+    #10070d !important;
+}
+
+.birthday-intro,
+.birthday-special-text,
+.birthday-dedication {
+  color: var(--light-pink);
+}
+
+/* PHOTO ALBUM */
+
+.album-cover {
+  border-color: #7d214e;
+  box-shadow:
+    15px 20px 0 #3a1429,
+    20px 28px 50px rgba(0, 0, 0, 0.4);
+}
+
+.album-pages {
+  background: linear-gradient(
+    90deg,
+    #301426,
+    #24101c 48%,
+    #3a1429 50%,
+    #24101c 52%,
+    #301426
+  );
+}
+
+.album-page {
+  background: #24101c;
+}
+
+.album-page img {
+  border-color: #3a1429;
+}
+
+.album-caption {
+  color: var(--soft-pink);
+}
+
+/* PHOTO MODAL */
+
+.photo-modal {
+  background: rgba(10, 3, 8, 0.96);
+}
+
+/* LOVE MOVIE VIDEO PLAYER */
+
+.movie-screen {
+  background: #10070d;
+  border-color: #3a1429;
+  box-shadow: 0 20px 60px rgba(232, 93, 145, 0.2);
+}
+
+#loveVideo {
+  background: #10070d;
+  border-radius: 14px;
+}
+
+.movie-progress {
+  background: #4a1c34;
+}
+
+#movieProgressBar {
+  background: var(--rose-pink);
+}
+
+.movie-dedication,
+.movie-caption {
+  color: var(--soft-pink);
+}
+
+/* TIMELINE */
+
+.timeline-card {
+  background: var(--dark-card);
+  border-color: #5d2440;
+}
+
+.timeline-card h3 {
+  color: var(--soft-pink);
+}
+
+.timeline-card p {
+  color: var(--muted-dark);
+}
+
+.story-highlight {
+  background: #301426;
+  border-left-color: var(--rose-pink);
+  color: var(--soft-pink) !important;
+}
+
+.timeline-ending {
+  background: var(--dark-card);
+}
+
+/* LOVE LETTER */
+
+.love-envelope {
+  background: linear-gradient(145deg, #a52e63, #e34485);
+}
+
+.love-letter {
+  background: #24101c;
+}
+
+.love-letter p {
+  color: #e8c8d5;
+}
+
+.letter-special {
+  color: var(--soft-pink) !important;
+}
+
+/* REASONS */
+
+.reason-front {
+  background: linear-gradient(135deg, #4a1933, #7d214e);
+  color: var(--light-pink);
+}
+
+.reason-back {
+  background: linear-gradient(135deg, #a52e63, #e85d91);
+  color: white;
+}
+
+/* LOVE JAR */
+
+.jar-body {
+  background: linear-gradient(
+    135deg,
+    rgba(125, 33, 78, 0.9),
+    rgba(232, 93, 145, 0.7)
+  );
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.jar-label {
+  background: #301426;
+  color: var(--soft-pink);
+}
+
+.jar-message {
+  background: var(--dark-card);
+  color: var(--soft-pink);
+}
+
+/* SCRATCH CARD */
+
+.scratch-card {
+  background: #301426;
+  border-color: #7d214e;
+}
+
+/* FLOWER GARDEN */
+
+.flower-garden {
+  background: linear-gradient(
+    to bottom,
+    #24101c,
+    #3a1429 75%,
+    #243321
+  );
+}
+
+/* DREAM CARDS */
+
+.dream-card {
+  background: var(--dark-card);
+  color: var(--soft-pink);
+}
+
+.dream-card p {
+  color: var(--muted-dark);
+}
+
+/* CAKE */
+
+#cakeWishMessage {
+  color: var(--soft-pink);
+}
+
+/* GIFT */
+
+.gift-message {
+  background: var(--dark-card);
+}
+
+.gift-message p {
+  color: var(--muted-dark);
+}
+
+/* NIGHT SKY */
+
+.sky-section {
+  background:
+    radial-gradient(circle at 50% 80%, #704065, transparent 60%),
+    linear-gradient(180deg, #10070d, #24102e) !important;
+}
+
+.sky-content h2,
+.sky-content h3 {
+  color: var(--light-pink);
+}
+
+.sky-content > p {
+  color: #e8c8d5;
+}
+
+/* ENDING */
+
+.ending-section {
+  background:
+    radial-gradient(circle at 50% 40%, rgba(190, 42, 105, 0.2), transparent 65%),
+    linear-gradient(145deg, #10070d, #210b19) !important;
+}
+
+.ending-content > h2 {
+  color: var(--soft-pink);
+}
+
+.ending-quote,
+.ending-small {
+  color: var(--muted-dark);
+}
+
+.movie-credits h3,
+.final-signature {
+  color: var(--soft-pink);
+}
+
+/* MUSIC PLAYER */
+
+.music-player {
+  background: rgba(36, 16, 28, 0.95);
+  border-color: rgba(232, 93, 145, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.music-title {
+  color: var(--soft-pink);
+}
+
+.music-subtitle {
+  color: var(--muted-dark);
+}
+
+.music-visualizer span {
+  background: var(--rose-pink);
+}
+
+#volumeControl {
+  accent-color: var(--rose-pink);
+}
+
+/* FOOTER */
+
+.website-footer {
+  background: #1d0c16;
+  color: var(--soft-pink);
+}
+
+/* LINKS */
+
 a {
-    color: #ff9cbd;
+  color: var(--soft-pink);
 }
 
 a:hover {
-    color: #ffd6e4;
+  color: var(--light-pink);
 }
 
-/* Selection color */
+/* INPUTS AND SELECTS */
+
+input,
+select,
+textarea {
+  background: #301426;
+  color: var(--dark-text);
+  border-color: #7d214e;
+}
+
+/* SELECTION */
+
 ::selection {
-    background: #a52e63;
-    color: white;
+  background: #a52e63;
+  color: white;
 }
 
-/* Mobile background */
-@media (max-width: 768px) {
-    body {
-        background: #10070d !important;
-    }
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .movie-container {
+    width: 100%;
+  }
+
+  .movie-screen {
+    border-width: 5px;
+    border-radius: 16px;
+    aspect-ratio: 16 / 9;
+  }
+
+  #loveVideo {
+    border-radius: 10px;
+  }
+
+  .movie-dedication {
+    font-size: 25px;
+  }
+
+  .music-player {
+    background: rgba(36, 16, 28, 0.97);
+  }
 }
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .movie-dedication {
+    font-size: 22px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================
+   END OF DARK PINK ROMANTIC THEME
+   ANKIT ❤️ SULOCHANA
+   ========================================================== */
