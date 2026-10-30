@@ -661,9 +661,9 @@ function renderAlbum() {
     img.alt = `Sulochana memory ${index + 1}`;
 
     // Load the currently displayed album images immediately.
-    img.loading = "eager";
-    img.decoding = "async";
-
+   img.loading = "eager";
+   img.decoding = "async";
+   img.fetchPriority = "high";
     /*
       If a photo cannot load, remove only that photo.
       The other 20 photos will remain available.
