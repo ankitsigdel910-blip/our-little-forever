@@ -2329,6 +2329,24 @@ p {
    END OF CSS
    ANKIT ❤️ SULOCHANA
    ========================================================== */
+/* Mobile Photo Visibility Fix */
+@media screen and (max-width: 768px) {
+    img {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .photo,
+    .gallery img,
+    .album img {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
 
 /* ==========================================================
    PREMIUM DARK ROMANTIC PINK THEME
@@ -2834,21 +2852,3 @@ select {
 }
 
 /* REDUCED MOTION ACCESSIBILITY IS PRESERVED */
-/* Mobile Photo Visibility Fix */
-@media screen and (max-width: 768px) {
-    img {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .photo,
-    .gallery img,
-    .album img {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-}
