@@ -1,35 +1,12 @@
 
 /* ==========================================================
    OUR LITTLE FOREVER 💗
-   COMPLETE JAVASCRIPT — VIDEO UPDATE
+   COMPLETE JAVASCRIPT — MOBILE PHOTO LOADING FIX
 
    Made by Ankit for Sulochana Raut
-
-   FEATURES:
-   - Welcome screen
-   - Background music from beginning
-   - Automatic music looping
-   - Music play/pause and volume
-   - Nepali birthday calendar
-   - Nickname question
-   - Grand birthday reveal
-   - 21-photo romantic album
-   - Personal love video
-   - Love letter
-   - 20 love reasons
-   - Love jar
-   - Scratch photo reveal
-   - Flower garden
-   - Birthday cake
-   - Gift surprise
-   - Fireworks and confetti
-   - Night sky
-   - Birthday card download
-   - Replay
    ========================================================== */
 
 "use strict";
-
 
 /* ==========================================================
    1. CONFIGURATION
@@ -46,50 +23,36 @@ const CONFIG = {
   },
 
   photoCount: 21,
-
   photoFolder: "assets/photos/",
-
   scratchPhoto: "assets/photos/scratch.jpg",
-
   music: "assets/music/love.mp3",
-
-  // Change this to your actual video filename.
   video: "assets/music/your-video.mp4",
-
   musicVolume: 0.5
 };
-
 
 /* ==========================================================
    2. HELPERS
    ========================================================== */
 
-const $ = (selector, parent = document) => {
-  return parent.querySelector(selector);
-};
+const $ = (selector, parent = document) =>
+  parent.querySelector(selector);
 
-const $$ = (selector, parent = document) => {
-  return [...parent.querySelectorAll(selector)];
-};
+const $$ = (selector, parent = document) =>
+  [...parent.querySelectorAll(selector)];
 
-const sleep = (ms) => {
-  return new Promise(resolve => setTimeout(resolve, ms));
-};
+const sleep = ms =>
+  new Promise(resolve => setTimeout(resolve, ms));
 
-const random = (min, max) => {
-  return Math.random() * (max - min) + min;
-};
+const random = (min, max) =>
+  Math.random() * (max - min) + min;
 
 function show(element) {
-  if (!element) return;
-  element.classList.remove("hidden");
+  if (element) element.classList.remove("hidden");
 }
 
 function hide(element) {
-  if (!element) return;
-  element.classList.add("hidden");
+  if (element) element.classList.add("hidden");
 }
-
 
 /* ==========================================================
    3. WEBSITE STATE
@@ -97,22 +60,16 @@ function hide(element) {
 
 const state = {
   photos: [],
-
   albumIndex: 0,
   albumOpened: false,
-
   nicknameAnswered: false,
-
   scratchReady: false,
   scratchCompleted: false,
-
   candleBlown: false,
   giftOpened: false,
-
   musicPlaying: false,
   musicManuallyPaused: false
 };
-
 
 /* ==========================================================
    4. PAGE NAVIGATION
@@ -128,16 +85,11 @@ const pages = {
 
 function changePage(name) {
   Object.entries(pages).forEach(([key, element]) => {
-    if (key === name) {
-      show(element);
-    } else {
-      hide(element);
-    }
+    if (key === name) show(element);
+    else hide(element);
   });
 
   window.scrollTo(0, 0);
-
-  // Music continues during page changes.
 
   if (name === "main") {
     show($("#musicPlayer"));
@@ -149,7 +101,6 @@ function changePage(name) {
     }, 200);
   }
 }
-
 
 /* ==========================================================
    5. BACKGROUND MUSIC 🎵
@@ -171,19 +122,14 @@ function initializeMusic() {
 
   const audioSource = music.querySelector("source");
 
-  if (audioSource) {
-    audioSource.src = CONFIG.music;
-  } else {
-    music.src = CONFIG.music;
-  }
+  if (audioSource) audioSource.src = CONFIG.music;
+  else music.src = CONFIG.music;
 
   music.loop = true;
   music.preload = "auto";
   music.volume = CONFIG.musicVolume;
 
-  if (player) {
-    show(player);
-  }
+  if (player) show(player);
 
   if (volume) {
     volume.value = CONFIG.musicVolume;
@@ -226,23 +172,13 @@ function initializeMusic() {
   });
 
   music.load();
-
   playMusic();
 
   console.log("🎵 Background music initialized.");
 }
 
-
-/* ==========================================================
-   6. PLAY MUSIC
-   ========================================================== */
-
 async function playMusic() {
-  if (!music) return false;
-
-  if (state.musicManuallyPaused) {
-    return false;
-  }
+  if (!music || state.musicManuallyPaused) return false;
 
   if (!music.paused) {
     state.musicPlaying = true;
@@ -257,69 +193,43 @@ async function playMusic() {
     updateMusicButton();
 
     return true;
-
   } catch (error) {
     state.musicPlaying = false;
     updateMusicButton();
 
-    console.log(
-      "🎵 Autoplay unavailable. Music will retry after interaction."
-    );
+    console.log("🎵 Autoplay unavailable. Music will retry after interaction.");
 
     return false;
   }
 }
 
-
-/* ==========================================================
-   7. PAUSE MUSIC
-   ========================================================== */
-
 function pauseMusic() {
   if (!music) return;
 
   state.musicManuallyPaused = true;
-
   music.pause();
-
   state.musicPlaying = false;
 
   updateMusicButton();
 }
 
-
-/* ==========================================================
-   8. UPDATE MUSIC BUTTON
-   ========================================================== */
-
 function updateMusicButton() {
   const toggle = $("#musicToggle");
-
   if (!toggle) return;
 
   if (state.musicPlaying) {
     toggle.textContent = "⏸";
     toggle.classList.add("playing");
-
-    toggle.setAttribute(
-      "aria-label",
-      "Pause background music"
-    );
-
+    toggle.setAttribute("aria-label", "Pause background music");
   } else {
     toggle.textContent = "🎵";
     toggle.classList.remove("playing");
-
-    toggle.setAttribute(
-      "aria-label",
-      "Play background music"
-    );
+    toggle.setAttribute("aria-label", "Play background music");
   }
 }
 
-
 /* ==========================================================
-   9. WELCOME SCREEN 💗
+   6. WELCOME SCREEN 💗
    ========================================================== */
 
 function initializeWelcome() {
@@ -327,7 +237,6 @@ function initializeWelcome() {
 
   if (beginButton) {
     beginButton.addEventListener("click", () => {
-
       playMusic();
 
       heartBurst(
@@ -335,14 +244,11 @@ function initializeWelcome() {
         window.innerHeight / 2
       );
 
-      setTimeout(() => {
-        changePage("calendar");
-      }, 350);
+      setTimeout(() => changePage("calendar"), 350);
     });
   }
 
   const typingElement = $("#welcomeTypingText");
-
   if (!typingElement) return;
 
   const text =
@@ -356,7 +262,6 @@ function initializeWelcome() {
     if (index >= text.length) return;
 
     typingElement.textContent += text[index];
-
     index++;
 
     setTimeout(type, 45);
@@ -365,59 +270,39 @@ function initializeWelcome() {
   setTimeout(type, 500);
 }
 
-
 /* ==========================================================
-   10. FLOATING HEARTS
+   7. FLOATING HEARTS
    ========================================================== */
 
 function initializeHearts() {
   const container = $("#floatingHearts");
-
   if (!container) return;
 
-  const emojis = [
-    "💗",
-    "💕",
-    "🌸",
-    "💖",
-    "🩷"
-  ];
+  const emojis = ["💗", "💕", "🌸", "💖", "🩷"];
 
   setInterval(() => {
     const heart = document.createElement("span");
 
     heart.className = "floating-heart";
-
     heart.textContent =
       emojis[Math.floor(Math.random() * emojis.length)];
 
     heart.style.left = `${random(0, 100)}%`;
-
     heart.style.fontSize = `${random(13, 26)}px`;
-
     heart.style.animationDuration = `${random(7, 13)}s`;
 
     container.appendChild(heart);
 
-    setTimeout(() => {
-      heart.remove();
-    }, 14000);
-
+    setTimeout(() => heart.remove(), 14000);
   }, 900);
 }
 
-
 /* ==========================================================
-   11. HEART BURST
+   8. HEART BURST
    ========================================================== */
 
 function heartBurst(x, y) {
-  const emojis = [
-    "💗",
-    "💕",
-    "✨",
-    "🌸"
-  ];
+  const emojis = ["💗", "💕", "✨", "🌸"];
 
   for (let i = 0; i < 18; i++) {
     const heart = document.createElement("span");
@@ -426,14 +311,12 @@ function heartBurst(x, y) {
       emojis[Math.floor(Math.random() * emojis.length)];
 
     heart.className = "burst-heart";
-
     heart.style.left = `${x}px`;
     heart.style.top = `${y}px`;
 
     document.body.appendChild(heart);
 
     const angle = random(0, Math.PI * 2);
-
     const distance = random(60, 220);
 
     heart.animate(
@@ -452,15 +335,12 @@ function heartBurst(x, y) {
         duration: 1200,
         easing: "ease-out"
       }
-    ).onfinish = () => {
-      heart.remove();
-    };
+    ).onfinish = () => heart.remove();
   }
 }
 
-
 /* ==========================================================
-   12. NEPALI BIRTHDAY CALENDAR 📅
+   9. NEPALI BIRTHDAY CALENDAR 📅
    ========================================================== */
 
 function initializeCalendar() {
@@ -471,12 +351,7 @@ function initializeCalendar() {
   const feedback = $("#calendarFeedback");
   const unlockButton = $("#unlockBtn");
 
-  if (
-    !yearSelect ||
-    !monthSelect ||
-    !daysContainer ||
-    !unlockButton
-  ) {
+  if (!yearSelect || !monthSelect || !daysContainer || !unlockButton) {
     return;
   }
 
@@ -493,7 +368,6 @@ function initializeCalendar() {
 
   function renderDays() {
     daysContainer.innerHTML = "";
-
     selectedDay = null;
 
     for (let day = 1; day <= 32; day++) {
@@ -504,20 +378,16 @@ function initializeCalendar() {
       button.textContent = day;
 
       button.addEventListener("click", () => {
-
         $$(".calendar-day", daysContainer).forEach(item => {
           item.classList.remove("selected");
         });
 
         button.classList.add("selected");
-
         selectedDay = day;
 
         updateSelectedText();
 
-        if (feedback) {
-          feedback.textContent = "";
-        }
+        if (feedback) feedback.textContent = "";
       });
 
       daysContainer.appendChild(button);
@@ -549,7 +419,6 @@ function initializeCalendar() {
   renderDays();
 
   unlockButton.addEventListener("click", () => {
-
     playMusic();
 
     const year = Number(yearSelect.value);
@@ -561,7 +430,6 @@ function initializeCalendar() {
       selectedDay === CONFIG.birthday.day;
 
     if (correct) {
-
       if (feedback) {
         feedback.textContent = "You unlocked Ankit's heart! ❤️";
         feedback.className = "calendar-feedback success";
@@ -569,12 +437,8 @@ function initializeCalendar() {
 
       confetti();
 
-      setTimeout(() => {
-        changePage("nickname");
-      }, 900);
-
+      setTimeout(() => changePage("nickname"), 900);
     } else {
-
       if (feedback) {
         feedback.textContent =
           "Oops Sanu! 🥹 That's not the special date. Try again! 💗";
@@ -593,27 +457,20 @@ function initializeCalendar() {
   });
 }
 
-
 /* ==========================================================
-   13. NICKNAME QUESTION 🥹
+   10. NICKNAME QUESTION 🥹
    ========================================================== */
 
 function initializeNickname() {
   const buttons = $$(".nickname-btn");
-
   const result = $("#nicknameResult");
-
   const enterButton = $("#enterHeartBtn");
 
   buttons.forEach(button => {
     button.addEventListener("click", () => {
-
       playMusic();
 
-      buttons.forEach(item => {
-        item.classList.remove("selected");
-      });
-
+      buttons.forEach(item => item.classList.remove("selected"));
       button.classList.add("selected");
 
       show(result);
@@ -627,77 +484,58 @@ function initializeNickname() {
 
   if (enterButton) {
     enterButton.addEventListener("click", () => {
-
       playMusic();
-
       changePage("birthday");
-
       confetti();
-
       fireworks();
     });
   }
 }
 
-
 /* ==========================================================
-   14. GRAND BIRTHDAY REVEAL 🎂
+   11. GRAND BIRTHDAY REVEAL 🎂
    ========================================================== */
 
 function initializeBirthday() {
   const exploreButton = $("#exploreWorldBtn");
-
   if (!exploreButton) return;
 
   exploreButton.addEventListener("click", () => {
-
     playMusic();
-
     changePage("main");
 
     setTimeout(confetti, 300);
   });
 }
 
-
 /* ==========================================================
-   15. PHOTO LOADING 📸
+   12. PHOTO LOADING 📸 — MOBILE FIX
    ========================================================== */
 
-function imageExists(path) {
-  return new Promise(resolve => {
-    const img = new Image();
+/*
+  IMPORTANT:
+  Do not wait for all 21 images before displaying the album.
 
-    img.onload = () => resolve(true);
-    img.onerror = () => resolve(false);
+  All photo paths are added immediately.
+  Images load when the album pages are displayed.
+  If an image is missing, only that image is removed.
+*/
 
-    img.src = path;
-  });
-}
-
-async function loadPhotos() {
-  const paths = [];
-
-  for (let i = 1; i <= CONFIG.photoCount; i++) {
-    paths.push(`${CONFIG.photoFolder}photo${i}.jpg`);
-  }
-
-  const results = await Promise.all(
-    paths.map(imageExists)
+function loadPhotos() {
+  state.photos = Array.from(
+    { length: CONFIG.photoCount },
+    (_, index) => `${CONFIG.photoFolder}photo${index + 1}.jpg`
   );
 
-  state.photos = paths.filter(
-    (_, index) => results[index]
-  );
+  state.albumIndex = 0;
 
   renderAlbum();
 
-  console.log(`📸 ${state.photos.length} photos loaded.`);
+  console.log(`📸 ${state.photos.length} photo paths added.`);
 }
 
-
 /* ==========================================================
-   16. PHOTO CAPTIONS
+   13. PHOTO CAPTIONS
    ========================================================== */
 
 const captions = [
@@ -724,9 +562,8 @@ const captions = [
   "Our beautiful story continues forever. 💗"
 ];
 
-
 /* ==========================================================
-   17. PHOTO ALBUM
+   14. PHOTO ALBUM
    ========================================================== */
 
 function getAlbumStep() {
@@ -735,7 +572,6 @@ function getAlbumStep() {
 
 function renderAlbum() {
   const container = $("#albumPages");
-
   const pageNumber = $("#albumPageNumber");
 
   if (!container) return;
@@ -753,33 +589,28 @@ function renderAlbum() {
       </div>
     `;
 
+    if (pageNumber) pageNumber.textContent = "No photos";
     return;
   }
 
   const step = getAlbumStep();
 
-  const currentPage =
-    Math.floor(state.albumIndex / step) + 1;
-
-  const totalPages =
-    Math.ceil(state.photos.length / step);
+  const currentPage = Math.floor(state.albumIndex / step) + 1;
+  const totalPages = Math.ceil(state.photos.length / step);
 
   for (let offset = 0; offset < step; offset++) {
     const index = state.albumIndex + offset;
 
     if (index >= state.photos.length) {
-
       if (step === 2 && offset === 1) {
         const endingPage = document.createElement("div");
 
         endingPage.className = "album-page album-ending-page";
-
         endingPage.style.textAlign = "center";
         endingPage.style.justifyContent = "center";
 
         endingPage.innerHTML = `
           <div style="padding: 30px 15px; text-align: center;">
-
             <div style="font-size: 60px; margin-bottom: 20px;">
               💗
             </div>
@@ -810,7 +641,6 @@ function renderAlbum() {
             ">
               Forever Yours, Ankit ❤️
             </p>
-
           </div>
         `;
 
@@ -820,15 +650,44 @@ function renderAlbum() {
       break;
     }
 
-    const page = document.createElement("div");
+    const photoPath = state.photos[index];
 
+    const page = document.createElement("div");
     page.className = "album-page";
 
     const img = document.createElement("img");
 
-    img.src = state.photos[index];
+    img.src = photoPath;
     img.alt = `Sulochana memory ${index + 1}`;
-    img.loading = "lazy";
+
+    // Load the currently displayed album images immediately.
+    img.loading = "eager";
+    img.decoding = "async";
+
+    /*
+      If a photo cannot load, remove only that photo.
+      The other 20 photos will remain available.
+    */
+
+    img.onerror = () => {
+      const failedIndex = state.photos.indexOf(photoPath);
+
+      if (failedIndex === -1) return;
+
+      state.photos.splice(failedIndex, 1);
+
+      if (state.albumIndex >= state.photos.length) {
+        state.albumIndex = Math.max(
+          0,
+          Math.floor((state.photos.length - 1) / getAlbumStep()) *
+            getAlbumStep()
+        );
+      }
+
+      console.warn("Photo could not be loaded:", photoPath);
+
+      renderAlbum();
+    };
 
     const caption = document.createElement("p");
 
@@ -836,7 +695,9 @@ function renderAlbum() {
     caption.textContent = captions[index % captions.length];
 
     img.addEventListener("click", () => {
-      openPhotoModal(index);
+      const currentIndex = state.photos.indexOf(photoPath);
+
+      if (currentIndex !== -1) openPhotoModal(currentIndex);
     });
 
     page.appendChild(img);
@@ -850,9 +711,8 @@ function renderAlbum() {
   }
 }
 
-
 /* ==========================================================
-   18. ALBUM CONTROLS
+   15. ALBUM CONTROLS
    ========================================================== */
 
 function initializeAlbum() {
@@ -865,7 +725,6 @@ function initializeAlbum() {
 
   if (openButton) {
     openButton.addEventListener("click", () => {
-
       hide(cover);
       show(book);
 
@@ -878,7 +737,6 @@ function initializeAlbum() {
 
   if (nextButton) {
     nextButton.addEventListener("click", () => {
-
       if (!state.photos.length) return;
 
       const step = getAlbumStep();
@@ -895,7 +753,6 @@ function initializeAlbum() {
 
   if (previousButton) {
     previousButton.addEventListener("click", () => {
-
       if (!state.photos.length) return;
 
       const step = getAlbumStep();
@@ -921,22 +778,16 @@ function initializeAlbum() {
     }, { passive: true });
 
     albumPages.addEventListener("touchend", event => {
-
       const endX = event.changedTouches[0].screenX;
 
       if (Math.abs(startX - endX) < 50) return;
 
-      if (startX > endX) {
-        nextButton?.click();
-      } else {
-        previousButton?.click();
-      }
-
+      if (startX > endX) nextButton?.click();
+      else previousButton?.click();
     }, { passive: true });
   }
 
   window.addEventListener("resize", () => {
-
     const step = getAlbumStep();
 
     state.albumIndex =
@@ -946,35 +797,29 @@ function initializeAlbum() {
   });
 }
 
-
 /* ==========================================================
-   19. PHOTO MODAL
+   16. PHOTO MODAL
    ========================================================== */
 
 function openPhotoModal(index) {
   const modal = $("#photoModal");
-
   if (!modal) return;
 
   const image = $("#modalPhoto");
   const caption = $("#modalCaption");
 
-  if (image) {
-    image.src = state.photos[index];
-  }
+  if (image) image.src = state.photos[index];
 
   if (caption) {
     caption.textContent = captions[index % captions.length];
   }
 
   show(modal);
-
   document.body.style.overflow = "hidden";
 }
 
 function closePhotoModal() {
   hide($("#photoModal"));
-
   document.body.style.overflow = "";
 }
 
@@ -985,21 +830,16 @@ function initializePhotoModal() {
   closeButton?.addEventListener("click", closePhotoModal);
 
   modal?.addEventListener("click", event => {
-    if (event.target === modal) {
-      closePhotoModal();
-    }
+    if (event.target === modal) closePhotoModal();
   });
 
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      closePhotoModal();
-    }
+    if (event.key === "Escape") closePhotoModal();
   });
 }
 
-
 /* ==========================================================
-   20. A LITTLE MOVIE ABOUT YOU 🎬
+   17. A LITTLE MOVIE ABOUT YOU 🎬
    ========================================================== */
 
 function initializeMovie() {
@@ -1010,11 +850,8 @@ function initializeMovie() {
     return;
   }
 
-  // Set the video path from configuration.
   video.src = CONFIG.video;
-
   video.preload = "metadata";
-
   video.load();
 
   video.addEventListener("loadedmetadata", () => {
@@ -1029,32 +866,24 @@ function initializeMovie() {
   });
 }
 
-
 /* ==========================================================
-   21. LOVE LETTER 💌
+   18. LOVE LETTER 💌
    ========================================================== */
 
 function initializeLetter() {
   const button = $("#openLetterBtn");
-
   const letter = $("#loveLetter");
 
   if (!button || !letter) return;
 
   button.addEventListener("click", () => {
-
     const opened = !letter.classList.contains("hidden");
 
     if (opened) {
-
       hide(letter);
-
       button.classList.remove("opened");
-
     } else {
-
       show(letter);
-
       button.classList.add("opened");
 
       const rect = button.getBoundingClientRect();
@@ -1067,9 +896,8 @@ function initializeLetter() {
   });
 }
 
-
 /* ==========================================================
-   22. TWENTY LOVE REASONS
+   19. TWENTY LOVE REASONS
    ========================================================== */
 
 const reasons = [
@@ -1097,11 +925,9 @@ const reasons = [
 
 function initializeReasons() {
   const grid = $("#reasonsGrid");
-
   if (!grid) return;
 
   reasons.forEach((reason, index) => {
-
     const card = document.createElement("button");
 
     card.type = "button";
@@ -1109,21 +935,15 @@ function initializeReasons() {
 
     card.innerHTML = `
       <span class="reason-inner">
-
         <span class="reason-front">
-
           <span class="reason-icon">💗</span>
-
           <strong>Reason ${index + 1}</strong>
-
           <small>Tap to reveal</small>
-
         </span>
 
         <span class="reason-back">
           ${reason}
         </span>
-
       </span>
     `;
 
@@ -1135,9 +955,8 @@ function initializeReasons() {
   });
 }
 
-
 /* ==========================================================
-   23. JAR OF LOVE
+   20. JAR OF LOVE
    ========================================================== */
 
 const loveNotes = [
@@ -1175,7 +994,6 @@ const loveNotes = [
 
 function initializeLoveJar() {
   const button = $("#loveJarBtn");
-
   const message = $("#jarMessage");
 
   if (!button || !message) return;
@@ -1183,7 +1001,6 @@ function initializeLoveJar() {
   let lastIndex = -1;
 
   button.addEventListener("click", () => {
-
     let index;
 
     do {
@@ -1197,16 +1014,13 @@ function initializeLoveJar() {
     show(message);
 
     message.classList.remove("note-appear");
-
     void message.offsetWidth;
-
     message.classList.add("note-appear");
   });
 }
 
-
 /* ==========================================================
-   24. SCRATCH PHOTO 🎀
+   21. SCRATCH PHOTO 🎀
    ========================================================== */
 
 let scratchCanvas = null;
@@ -1217,7 +1031,6 @@ let scratchDistance = 0;
 
 function initializeScratch() {
   scratchCanvas = $("#scratchCanvas");
-
   if (!scratchCanvas) return;
 
   const card = $(".scratch-card");
@@ -1227,7 +1040,6 @@ function initializeScratch() {
 
   message.innerHTML = `
     <div class="scratch-photo-reveal">
-
       <img
         src="${CONFIG.scratchPhoto}"
         class="scratch-secret-photo"
@@ -1238,50 +1050,41 @@ function initializeScratch() {
       <div class="scratch-photo-shade"></div>
 
       <div class="scratch-photo-message">
-
         <span>💗</span>
-
         <h3>My Favourite Forever</h3>
-
         <p>I Love You, Sulochana! ❤️</p>
-
       </div>
-
     </div>
   `;
 
   const image = $(".scratch-secret-photo");
 
   image.onerror = () => {
-
     console.warn("scratch.jpg photo not found.");
 
     image.style.display = "none";
 
-    $(".scratch-photo-reveal").style.background =
-      "linear-gradient(135deg,#ffc4dc,#ff82b1)";
+    const reveal = $(".scratch-photo-reveal");
+
+    if (reveal) {
+      reveal.style.background =
+        "linear-gradient(135deg,#ffc4dc,#ff82b1)";
+    }
   };
 
   if ("IntersectionObserver" in window) {
-
     const observer = new IntersectionObserver(entries => {
-
       if (entries[0].isIntersecting) {
-
         initializeScratchSurface();
 
-        if (state.scratchReady) {
-          observer.disconnect();
-        }
+        if (state.scratchReady) observer.disconnect();
       }
-
     });
 
     observer.observe(card);
   }
 
   scratchCanvas.addEventListener("pointerdown", event => {
-
     if (state.scratchCompleted) return;
 
     initializeScratchSurface();
@@ -1291,30 +1094,21 @@ function initializeScratch() {
     event.preventDefault();
 
     scratchDrawing = true;
-
     scratchPrevious = getScratchPoint(event);
 
     try {
       scratchCanvas.setPointerCapture(event.pointerId);
-    } catch (error) {
-      // Pointer capture is optional.
-    }
+    } catch (error) {}
 
-    eraseCircle(
-      scratchPrevious.x,
-      scratchPrevious.y
-    );
+    eraseCircle(scratchPrevious.x, scratchPrevious.y);
   });
 
   scratchCanvas.addEventListener("pointermove", event => {
-
     if (
       !scratchDrawing ||
       state.scratchCompleted ||
       !scratchContext
-    ) {
-      return;
-    }
+    ) return;
 
     event.preventDefault();
 
@@ -1333,10 +1127,7 @@ function initializeScratch() {
       scratchPrevious.y
     );
 
-    scratchContext.lineTo(
-      point.x,
-      point.y
-    );
+    scratchContext.lineTo(point.x, point.y);
 
     scratchContext.stroke();
 
@@ -1368,46 +1159,26 @@ function initializeScratch() {
   scratchCanvas.addEventListener("pointercancel", stopDrawing);
 
   window.addEventListener("resize", () => {
-
-    if (
-      !state.scratchCompleted &&
-      state.scratchReady
-    ) {
+    if (!state.scratchCompleted && state.scratchReady) {
       paintScratch();
     }
   });
 }
 
-
-/* ==========================================================
-   25. INITIALIZE SCRATCH SURFACE
-   ========================================================== */
-
 function initializeScratchSurface() {
-
   if (
     !scratchCanvas ||
     state.scratchReady ||
     state.scratchCompleted
-  ) {
-    return;
-  }
+  ) return;
 
   const rect = scratchCanvas.getBoundingClientRect();
 
-  if (rect.width < 10 || rect.height < 10) {
-    return;
-  }
+  if (rect.width < 10 || rect.height < 10) return;
 
   paintScratch();
-
   state.scratchReady = true;
 }
-
-
-/* ==========================================================
-   26. PAINT SCRATCH SURFACE
-   ========================================================== */
 
 function paintScratch() {
   if (!scratchCanvas) return;
@@ -1423,22 +1194,12 @@ function paintScratch() {
 
   scratchContext = scratchCanvas.getContext("2d");
 
-  scratchContext.setTransform(
-    ratio,
-    0,
-    0,
-    ratio,
-    0,
-    0
-  );
+  scratchContext.setTransform(ratio, 0, 0, ratio, 0, 0);
 
   scratchContext.globalCompositeOperation = "source-over";
 
   const gradient = scratchContext.createLinearGradient(
-    0,
-    0,
-    rect.width,
-    rect.height
+    0, 0, rect.width, rect.height
   );
 
   gradient.addColorStop(0, "#ffb5d1");
@@ -1447,16 +1208,10 @@ function paintScratch() {
 
   scratchContext.fillStyle = gradient;
 
-  scratchContext.fillRect(
-    0,
-    0,
-    rect.width,
-    rect.height
-  );
+  scratchContext.fillRect(0, 0, rect.width, rect.height);
 
   scratchContext.textAlign = "center";
   scratchContext.textBaseline = "middle";
-
   scratchContext.font = "55px Arial";
 
   scratchContext.fillText(
@@ -1485,11 +1240,6 @@ function paintScratch() {
   scratchDistance = 0;
 }
 
-
-/* ==========================================================
-   27. SCRATCH POINTER HELPERS
-   ========================================================== */
-
 function getScratchPoint(event) {
   const rect = scratchCanvas.getBoundingClientRect();
 
@@ -1500,33 +1250,17 @@ function getScratchPoint(event) {
 }
 
 function eraseCircle(x, y) {
-
   scratchContext.globalCompositeOperation = "destination-out";
 
   scratchContext.beginPath();
-
-  scratchContext.arc(
-    x,
-    y,
-    19,
-    0,
-    Math.PI * 2
-  );
-
+  scratchContext.arc(x, y, 19, 0, Math.PI * 2);
   scratchContext.fill();
 }
 
-
-/* ==========================================================
-   28. COMPLETE SCRATCH REVEAL
-   ========================================================== */
-
 function completeScratch() {
-
   if (state.scratchCompleted) return;
 
   state.scratchCompleted = true;
-
   scratchDrawing = false;
 
   scratchCanvas.style.opacity = "0";
@@ -1542,9 +1276,8 @@ function completeScratch() {
   );
 }
 
-
 /* ==========================================================
-   29. FLOWER GARDEN 🌸
+   22. FLOWER GARDEN 🌸
    ========================================================== */
 
 function initializeGarden() {
@@ -1554,20 +1287,13 @@ function initializeGarden() {
   if (!garden) return;
 
   const flowers = [
-    "🌷",
-    "🌸",
-    "🌹",
-    "🌺",
-    "🌻",
-    "🪷",
-    "🌷",
-    "🌸"
+    "🌷", "🌸", "🌹", "🌺",
+    "🌻", "🪷", "🌷", "🌸"
   ];
 
   let bloomed = 0;
 
   flowers.forEach((emoji, index) => {
-
     const button = document.createElement("button");
 
     button.className = "garden-flower";
@@ -1580,13 +1306,9 @@ function initializeGarden() {
     );
 
     button.addEventListener("click", () => {
-
-      if (button.classList.contains("bloomed")) {
-        return;
-      }
+      if (button.classList.contains("bloomed")) return;
 
       button.classList.add("bloomed");
-
       bloomed++;
 
       const rect = button.getBoundingClientRect();
@@ -1596,10 +1318,7 @@ function initializeGarden() {
         rect.top + rect.height / 2
       );
 
-      if (
-        bloomed === flowers.length &&
-        message
-      ) {
+      if (bloomed === flowers.length && message) {
         message.textContent =
           "Every flower blooms for you, Sulochana! 🌸❤️";
       }
@@ -1609,9 +1328,8 @@ function initializeGarden() {
   });
 }
 
-
 /* ==========================================================
-   30. BIRTHDAY CAKE 🎂
+   23. BIRTHDAY CAKE 🎂
    ========================================================== */
 
 function initializeCake() {
@@ -1622,7 +1340,6 @@ function initializeCake() {
   if (!candle) return;
 
   candle.addEventListener("click", () => {
-
     if (state.candleBlown) return;
 
     state.candleBlown = true;
@@ -1638,9 +1355,8 @@ function initializeCake() {
   });
 }
 
-
 /* ==========================================================
-   31. GIFT SURPRISE 🎁
+   24. GIFT SURPRISE 🎁
    ========================================================== */
 
 function initializeGift() {
@@ -1650,7 +1366,6 @@ function initializeGift() {
   if (!button) return;
 
   button.addEventListener("click", () => {
-
     if (state.giftOpened) return;
 
     state.giftOpened = true;
@@ -1670,14 +1385,12 @@ function initializeGift() {
   });
 }
 
-
 /* ==========================================================
-   32. CONFETTI 🎉
+   25. CONFETTI 🎉
    ========================================================== */
 
 function confetti() {
   const container = $("#confettiContainer");
-
   if (!container) return;
 
   const colors = [
@@ -1689,36 +1402,29 @@ function confetti() {
   ];
 
   for (let i = 0; i < 85; i++) {
-
     const piece = document.createElement("span");
 
     piece.className = "confetti-piece";
-
     piece.style.left = `${random(0, 100)}vw`;
 
     piece.style.background =
       colors[Math.floor(Math.random() * colors.length)];
 
     piece.style.animationDuration = `${random(2.5, 5)}s`;
-
     piece.style.animationDelay = `${random(0, 0.5)}s`;
 
     container.appendChild(piece);
 
-    setTimeout(() => {
-      piece.remove();
-    }, 6000);
+    setTimeout(() => piece.remove(), 6000);
   }
 }
 
-
 /* ==========================================================
-   33. FIREWORKS 🎆
+   26. FIREWORKS 🎆
    ========================================================== */
 
 function fireworks() {
   const canvas = $("#fireworksCanvas");
-
   if (!canvas) return;
 
   const rect = canvas.getBoundingClientRect();
@@ -1729,7 +1435,6 @@ function fireworks() {
   canvas.height = rect.height;
 
   const ctx = canvas.getContext("2d");
-
   const particles = [];
 
   const colors = [
@@ -1740,82 +1445,47 @@ function fireworks() {
   ];
 
   function explode(x, y) {
-
     for (let i = 0; i < 65; i++) {
-
       const angle = random(0, Math.PI * 2);
-
       const speed = random(1, 5);
 
       particles.push({
         x,
         y,
-
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
-
         life: 1,
-
-        color: colors[
-          Math.floor(Math.random() * colors.length)
-        ]
+        color: colors[Math.floor(Math.random() * colors.length)]
       });
     }
   }
 
-  explode(
-    canvas.width * 0.3,
-    canvas.height * 0.35
-  );
-
-  explode(
-    canvas.width * 0.7,
-    canvas.height * 0.3
-  );
+  explode(canvas.width * 0.3, canvas.height * 0.35);
+  explode(canvas.width * 0.7, canvas.height * 0.3);
 
   let frame = 0;
 
   function animate() {
-
-    ctx.clearRect(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(particle => {
-
       particle.x += particle.vx;
       particle.y += particle.vy;
-
       particle.vy += 0.035;
-
       particle.life -= 0.01;
 
       ctx.globalAlpha = Math.max(0, particle.life);
-
       ctx.fillStyle = particle.color;
 
       ctx.beginPath();
-
-      ctx.arc(
-        particle.x,
-        particle.y,
-        2,
-        0,
-        Math.PI * 2
-      );
-
+      ctx.arc(particle.x, particle.y, 2, 0, Math.PI * 2);
       ctx.fill();
     });
 
     ctx.globalAlpha = 1;
-
     frame++;
 
     if (frame % 45 === 0 && frame < 180) {
-
       explode(
         random(70, Math.max(71, canvas.width - 70)),
         random(50, Math.max(51, canvas.height * 0.6))
@@ -1823,26 +1493,17 @@ function fireworks() {
     }
 
     if (frame < 250) {
-
       requestAnimationFrame(animate);
-
     } else {
-
-      ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
   }
 
   animate();
 }
 
-
 /* ==========================================================
-   34. NIGHT SKY 🌌
+   27. NIGHT SKY 🌌
    ========================================================== */
 
 function initializeSky() {
@@ -1851,11 +1512,9 @@ function initializeSky() {
 
 function drawSkyStars() {
   const canvas = $("#starsCanvas");
-
   if (!canvas) return;
 
   const ctx = canvas.getContext("2d");
-
   const rect = canvas.getBoundingClientRect();
 
   if (!rect.width || !rect.height) return;
@@ -1866,11 +1525,9 @@ function drawSkyStars() {
   canvas.height = rect.height * ratio;
 
   ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-
   ctx.clearRect(0, 0, rect.width, rect.height);
 
   for (let i = 0; i < 120; i++) {
-
     ctx.fillStyle = `rgba(255,255,255,${random(0.25, 1)})`;
 
     ctx.beginPath();
@@ -1887,17 +1544,14 @@ function drawSkyStars() {
   }
 }
 
-
 /* ==========================================================
-   35. SCROLL REVEAL
+   28. SCROLL REVEAL
    ========================================================== */
 
 let revealObserver = null;
 
 function initializeReveals() {
-
   if (!("IntersectionObserver" in window)) {
-
     $$(".reveal").forEach(element => {
       element.classList.add("visible");
     });
@@ -1907,16 +1561,12 @@ function initializeReveals() {
 
   revealObserver = new IntersectionObserver(
     entries => {
-
       entries.forEach(entry => {
-
         if (!entry.isIntersecting) return;
 
         entry.target.classList.add("visible");
-
         revealObserver.unobserve(entry.target);
       });
-
     },
     {
       threshold: 0.08
@@ -1936,14 +1586,12 @@ function refreshReveals() {
   });
 }
 
-
 /* ==========================================================
-   36. DOWNLOAD BIRTHDAY CARD 💌
+   29. DOWNLOAD BIRTHDAY CARD 💌
    ========================================================== */
 
 function initializeDownload() {
   const button = $("#downloadCardBtn");
-
   if (!button) return;
 
   button.addEventListener("click", downloadCard);
@@ -1957,38 +1605,28 @@ function downloadCard() {
 
   const ctx = canvas.getContext("2d");
 
-  const gradient = ctx.createLinearGradient(
-    0,
-    0,
-    1200,
-    1500
-  );
+  const gradient = ctx.createLinearGradient(0, 0, 1200, 1500);
 
   gradient.addColorStop(0, "#fff1f6");
   gradient.addColorStop(1, "#ff9fc5");
 
   ctx.fillStyle = gradient;
-
   ctx.fillRect(0, 0, 1200, 1500);
 
   ctx.strokeStyle = "#d83f83";
   ctx.lineWidth = 8;
-
   ctx.strokeRect(65, 65, 1070, 1370);
 
   ctx.textAlign = "center";
   ctx.fillStyle = "#e83e83";
 
   ctx.font = "90px serif";
-
   ctx.fillText("💗", 600, 300);
 
   ctx.font = "bold 72px Georgia";
-
   ctx.fillText("Happy Birthday", 600, 450);
 
   ctx.font = "bold 68px Georgia";
-
   ctx.fillText("Sulochana Raut", 600, 570);
 
   ctx.fillStyle = "#85435e";
@@ -2009,9 +1647,7 @@ function downloadCard() {
   let y = 730;
 
   lines.forEach(line => {
-
     ctx.fillText(line, 600, y);
-
     y += 65;
   });
 
@@ -2023,20 +1659,17 @@ function downloadCard() {
   const link = document.createElement("a");
 
   link.download = "Happy-Birthday-Sulochana.png";
-
   link.href = canvas.toDataURL("image/png");
 
   link.click();
 }
 
-
 /* ==========================================================
-   37. REPLAY SURPRISE
+   30. REPLAY SURPRISE
    ========================================================== */
 
 function initializeReplay() {
   const button = $("#replayBtn");
-
   if (!button) return;
 
   button.addEventListener("click", () => {
@@ -2044,85 +1677,51 @@ function initializeReplay() {
   });
 }
 
-
 /* ==========================================================
-   38. INITIALIZE WEBSITE
+   31. INITIALIZE WEBSITE
    ========================================================== */
 
 function initializeWebsite() {
-
   console.log("💗 Our Little Forever — Ankit & Sulochana");
 
-  // Background music
   initializeMusic();
-
-  // Welcome screen
   initializeWelcome();
-
   initializeHearts();
 
-  // Birthday journey
   initializeCalendar();
-
   initializeNickname();
-
   initializeBirthday();
 
-  // Photo album and modal
   initializeAlbum();
-
   initializePhotoModal();
 
-  // Personal video
   initializeMovie();
 
-  // Romantic surprises
   initializeLetter();
-
   initializeReasons();
-
   initializeLoveJar();
 
   initializeScratch();
-
   initializeGarden();
-
   initializeCake();
-
   initializeGift();
 
-  // Visual effects
   initializeSky();
-
   initializeReveals();
 
-  // Ending features
   initializeDownload();
-
   initializeReplay();
 
-  // Start from welcome page
   changePage("welcome");
 
-  // Load photos
+  // Photos are registered immediately.
+  // No waiting for all 21 image requests.
   loadPhotos();
 
-  /*
-    Retry music after user interaction
-    if browser blocks autoplay.
-  */
-
   function retryMusicAfterInteraction() {
-
-    if (
-      !music ||
-      state.musicManuallyPaused
-    ) {
-      return;
-    }
+    if (!music || state.musicManuallyPaused) return;
 
     if (!music.paused) {
-
       document.removeEventListener(
         "pointerdown",
         retryMusicAfterInteraction
@@ -2150,31 +1749,23 @@ function initializeWebsite() {
   );
 
   console.log("🎵 Music will loop automatically.");
-
   console.log("📸 Album configured for 21 photos.");
-
   console.log("🎬 Personal love video configured.");
-
   console.log("❤️ Website initialized successfully!");
 }
 
-
 /* ==========================================================
-   39. DOM READY
+   32. DOM READY
    ========================================================== */
 
 if (document.readyState === "loading") {
-
   document.addEventListener(
     "DOMContentLoaded",
     initializeWebsite
   );
-
 } else {
-
   initializeWebsite();
 }
-
 
 /* ==========================================================
    END OF JAVASCRIPT

@@ -2330,6 +2330,453 @@ p {
    ANKIT ❤️ SULOCHANA
    ========================================================== */
 
+/* ==========================================================
+   FINAL RESPONSIVE & DESIGN FIXES
+   OUR LITTLE FOREVER — ANKIT ❤️ SULOCHANA
+   ========================================================== */
+
+/* GLOBAL RESPONSIVE FIXES */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+body {
+  width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.content-section {
+  width: 100%;
+  overflow: clip;
+}
+
+/* BETTER TEXT READABILITY */
+
+.section-heading,
+.welcome-content,
+.birthday-content,
+.ending-content,
+.sky-content {
+  overflow-wrap: break-word;
+}
+
+.content-section p {
+  line-height: 1.8;
+}
+
+.section-heading > p:last-child {
+  line-height: 1.8;
+}
+
+/* BETTER BUTTON INTERACTION */
+
+.romantic-btn,
+.secondary-btn,
+.album-open-btn,
+.nickname-btn,
+.album-controls button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.romantic-btn:active,
+.secondary-btn:active,
+.album-open-btn:active,
+.album-controls button:active {
+  transform: scale(0.97);
+}
+
+/* PHOTO ALBUM FIXES */
+
+.album-container {
+  width: min(1050px, 100%);
+  padding: 0 5px;
+}
+
+.album-book {
+  width: 100%;
+  min-width: 0;
+}
+
+.album-pages {
+  width: 100%;
+  min-width: 0;
+  align-items: stretch;
+}
+
+.album-page {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.album-page img {
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+  object-fit: cover;
+  object-position: center;
+  background: #321a2b;
+}
+
+.album-caption {
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.album-controls {
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.album-controls button {
+  flex-shrink: 0;
+}
+
+/* PHOTO MODAL FIX */
+
+.photo-modal {
+  padding:
+    max(20px, env(safe-area-inset-top))
+    15px
+    max(20px, env(safe-area-inset-bottom));
+}
+
+#modalPhoto {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 95vw;
+  max-height: 78vh;
+  object-fit: contain;
+}
+
+#modalCaption {
+  max-width: 90%;
+  overflow-wrap: anywhere;
+}
+
+/* VIDEO RESPONSIVE FIX */
+
+.movie-container {
+  width: min(900px, 100%);
+  min-width: 0;
+}
+
+.movie-screen {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #100810;
+}
+
+#loveVideo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* TIMELINE FIX */
+
+.timeline-card {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.timeline-card p {
+  overflow-wrap: anywhere;
+}
+
+/* LOVE LETTER FIX */
+
+.love-letter {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.love-letter p {
+  overflow-wrap: anywhere;
+}
+
+/* REASON CARDS FIX */
+
+.reason-card {
+  min-width: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reason-front,
+.reason-back {
+  overflow-wrap: anywhere;
+}
+
+/* MUSIC PLAYER FIX */
+
+.music-player {
+  max-width: calc(100vw - 20px);
+}
+
+#volumeControl {
+  min-width: 0;
+}
+
+/* FORM ELEMENTS */
+
+input,
+select,
+button {
+  max-width: 100%;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline-offset: 4px;
+}
+
+/* TABLET RESPONSIVE */
+
+@media (max-width: 950px) {
+  .album-page {
+    padding: 15px;
+  }
+
+  .album-page img {
+    height: 320px;
+  }
+
+  .timeline-item {
+    width: calc(50% - 30px);
+  }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 650px) {
+  .page {
+    min-height: 100svh;
+    padding: 35px 15px;
+  }
+
+  .content-section {
+    padding: 60px 15px;
+  }
+
+  .section-heading {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(30px, 8vw, 38px);
+    line-height: 1.25;
+  }
+
+  .section-heading > p:last-child {
+    font-size: 14px;
+  }
+
+  /* Album: one photo per page on mobile */
+
+  .album-container {
+    width: 100%;
+    margin: 25px auto;
+    padding: 0;
+  }
+
+  .album-pages {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+    min-height: 0;
+    padding: 12px;
+    border-radius: 16px;
+    background: #21131e;
+  }
+
+  .album-page {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .album-page img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    max-height: 65svh;
+    object-fit: cover;
+    border-width: 6px;
+  }
+
+  .album-caption {
+    margin: 14px 0 5px;
+    font-size: 25px;
+  }
+
+  .album-controls {
+    gap: 15px;
+    margin: 22px auto;
+  }
+
+  .album-controls button {
+    width: 45px;
+    height: 45px;
+    font-size: 19px;
+  }
+
+  #albumPageNumber {
+    min-width: 90px;
+    font-size: 14px;
+  }
+
+  /* Video */
+
+  .movie-container {
+    width: 100%;
+  }
+
+  .movie-screen {
+    aspect-ratio: 16 / 9;
+    border-width: 4px;
+    border-radius: 13px;
+  }
+
+  #loveVideo {
+    border-radius: 8px;
+  }
+
+  /* Calendar */
+
+  .calendar-card,
+  .question-card {
+    width: 100%;
+    padding: 25px 15px;
+  }
+
+  /* Timeline */
+
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Music player */
+
+  .music-player {
+    right: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    gap: 7px;
+    padding: 7px 9px;
+  }
+
+  #musicToggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  #volumeControl {
+    width: 55px;
+  }
+
+  /* Cards */
+
+  .reasons-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .dreams-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Ending */
+
+  .ending-content > h2 {
+    font-size: clamp(55px, 14vw, 75px);
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .content-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .album-pages {
+    padding: 8px;
+  }
+
+  .album-page {
+    padding: 8px;
+  }
+
+  .album-page img {
+    aspect-ratio: 3 / 4;
+  }
+
+  .album-controls {
+    gap: 10px;
+  }
+
+  .reason-card {
+    height: 165px;
+  }
+
+  .music-player {
+    right: 7px;
+    bottom: 7px;
+  }
+
+  #volumeControl {
+    width: 45px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* END OF FINAL FIXES */
+
 
 /* ==========================================================
    PREMIUM DARK ROMANTIC PINK THEME
