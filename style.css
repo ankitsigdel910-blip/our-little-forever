@@ -2329,3 +2329,92 @@ p {
    END OF CSS
    ANKIT ❤️ SULOCHANA
    ========================================================== */
+/* ===== DARK PINK ROMANTIC THEME ===== */
+
+:root {
+    --dark-bg: #10070d;
+    --dark-pink: #2b0d20;
+    --deep-pink: #7d214e;
+    --rose-pink: #e85d91;
+    --soft-pink: #ff9cbd;
+    --light-pink: #ffd6e4;
+}
+
+/* Main website background */
+body {
+    background: #10070d !important;
+    color: #ffe8f0;
+}
+
+/* Hero / Our Little Forever section */
+.hero,
+#hero,
+.hero-section {
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(190, 42, 105, 0.20), transparent 65%),
+        linear-gradient(145deg, #10070d, #210b19 55%, #120710) !important;
+}
+
+/* Romantic heading */
+h1, h2 {
+    color: #ffb0cc;
+    text-shadow: 0 0 18px rgba(232, 93, 145, 0.25);
+}
+
+/* Small section labels */
+.section-label,
+.eyebrow,
+.subtitle {
+    color: #e88aaa;
+}
+
+/* Buttons */
+button,
+.btn {
+    background: linear-gradient(135deg, #a52e63, #e85d91) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 180, 210, 0.25);
+    box-shadow: 0 5px 22px rgba(232, 93, 145, 0.18);
+}
+
+button:hover,
+.btn:hover {
+    background: linear-gradient(135deg, #c83c79, #ff80ad) !important;
+    transform: translateY(-2px);
+}
+
+/* Cards and content boxes */
+.card,
+.memory-card,
+.content-card {
+    background: rgba(43, 13, 32, 0.85);
+    border: 1px solid rgba(232, 93, 145, 0.20);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Paragraphs */
+p {
+    color: #e8c8d5;
+}
+
+/* Links */
+a {
+    color: #ff9cbd;
+}
+
+a:hover {
+    color: #ffd6e4;
+}
+
+/* Selection color */
+::selection {
+    background: #a52e63;
+    color: white;
+}
+
+/* Mobile background */
+@media (max-width: 768px) {
+    body {
+        background: #10070d !important;
+    }
+}
