@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#fff0f5">
+
+    <meta name="description"
+        content="A little world of love, created by Ankit for his beautiful Sulochana.">
+
+    <title>Our Little Forever 💗 | Ankit & Sulochana</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================
+         GLOBAL BACKGROUND EFFECTS
+    ====================================== -->
+
+    <div id="particles"></div>
+    <div id="floatingHearts"></div>
+    <div id="petalsContainer"></div>
+
+    <!-- Page Transition -->
+    <div id="pageTransition" class="page-transition"></div>
+
+    <!-- =====================================
+         MUSIC PLAYER
+    ====================================== -->
+
+    <div id="musicPlayer" class="music-player hidden">
+
+        <button id="musicToggle" aria-label="Play or pause music">
+            🎵
+        </button>
+
+        <div class="music-info">
+            <span class="music-title">Our Special Song</span>
+            <span class="music-subtitle">For Sulochana 💗</span>
+        </div>
+
+        <div class="music-visualizer">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <input
+            type="range"
+            id="volumeControl"
+            min="0"
+            max="1"
+            step="0.05"
+            value="0.5"
+            aria-label="Music volume">
+    </div>
+
+    <audio id="backgroundMusic" loop preload="none">
+        <source src="assets/music/love.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- =====================================
+         PAGE 1: CINEMATIC WELCOME
+    ====================================== -->
+
+    <section id="welcomePage" class="page welcome-page">
+
+        <div class="welcome-glow"></div>
+
+        <div class="welcome-content">
+
+            <div class="animated-heart-container">
+
+                <div class="heart-glow"></div>
+
+                <div class="main-heart">
+                    💗
+                </div>
+
+                <div class="heart-sparkle sparkle-1">✨</div>
+                <div class="heart-sparkle sparkle-2">✨</div>
+                <div class="heart-sparkle sparkle-3">✨</div>
+
+            </div>
+
+            <p class="welcome-small-text">
+                A LITTLE SOMETHING MADE WITH LOVE
+            </p>
+
+            <h1 class="welcome-title">
+                A Little World
+                <span>Just For You</span>
+            </h1>
+
+            <div class="typing-container">
+
+                <p id="welcomeTypingText"></p>
+
+            </div>
+
+            <p class="welcome-description">
+                Every beautiful story has a beginning.
+                And this one is made for someone
+                truly special.
+            </p>
+
+            <button id="beginSurpriseBtn" class="romantic-btn">
+
+                <span>Begin Your Surprise</span>
+                <span>🎁</span>
+
+            </button>
+
+            <p class="welcome-footer">
+                Made with endless love by Ankit ❤️
+            </p>
+
+        </div>
+
+        <div class="welcome-decoration decoration-left">🌸</div>
+        <div class="welcome-decoration decoration-right">🌷</div>
+
+    </section>
+
+
+    <!-- =====================================
+         PAGE 2: NEPALI CALENDAR UNLOCK
+    ====================================== -->
+
+    <section id="calendarPage" class="page calendar-page hidden">
+
+        <div class="calendar-card">
+
+            <div class="calendar-icon">
+                💌
+            </div>
+
+            <p class="section-tag">
+                A LITTLE SECRET
+            </p>
+
+            <h2 class="calendar-title">
+                Unlock My Heart
+                <span>💗</span>
+            </h2>
+
+            <p class="calendar-description">
+                Before I show you something special,
+                tell me one little thing, princess...
+            </p>
+
+            <h3 class="calendar-question">
+                When was my princess born? 👑
+            </h3>
+
+            <!-- Nepali Calendar -->
+
+            <div class="nepali-calendar">
+
+                <div class="calendar-header">
+
+                    <select id="bsYear" aria-label="Select Nepali year">
+
+                        <option value="">Select Year</option>
+
+                    </select>
+
+                    <select id="bsMonth" aria-label="Select Nepali month">
+
+                        <option value="">Select Month</option>
+
+                        <option value="1">बैशाख</option>
+                        <option value="2">जेठ</option>
+                        <option value="3">असार</option>
+                        <option value="4">साउन</option>
+                        <option value="5">भदौ</option>
+                        <option value="6">असोज</option>
+                        <option value="7">कार्तिक</option>
+                        <option value="8">मंसिर</option>
+                        <option value="9">पुष</option>
+                        <option value="10">माघ</option>
+                        <option value="11">फागुन</option>
+                        <option value="12">चैत</option>
+
+                    </select>
+
+                </div>
+
+                <div class="calendar-weekdays">
+
+                    <span>आइत</span>
+                    <span>सोम</span>
+                    <span>मंगल</span>
+                    <span>बुध</span>
+                    <span>बिही</span>
+                    <span>शुक्र</span>
+                    <span>शनि</span>
+
+                </div>
+
+                <div id="calendarDays" class="calendar-days">
+
+                    <!-- Generated by JavaScript -->
+
+                </div>
+
+                <p id="selectedDateText" class="selected-date">
+
+                    Select your special date 💗
+
+                </p>
+
+            </div>
+
+            <button id="unlockBtn" class="romantic-btn">
+
+                Unlock My Heart 🔓
+
+            </button>
+
+            <div id="calendarFeedback"
+                class="calendar-feedback"
+                aria-live="polite"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PAGE 3: NICKNAME QUESTION
+    ====================================== -->
+
+    <section id="nicknamePage" class="page nickname-page hidden">
+
+        <div class="question-card">
+
+            <div class="question-heart">
+                💖
+            </div>
+
+            <p class="section-tag">
+                ONE MORE LITTLE QUESTION
+            </p>
+
+            <h2>
+                Who holds the most special
+                place in Ankit's heart?
+            </h2>
+
+            <p>
+                Choose your answer, sweetheart. 🥹
+            </p>
+
+            <div class="nickname-options">
+
+                <button class="nickname-btn" data-name="Sanu">
+                    💗 Sanu
+                </button>
+
+                <button class="nickname-btn" data-name="Motuu">
+                    🥹 Motuu
+                </button>
+
+                <button class="nickname-btn" data-name="Kanxu">
+                    🌸 Kanxu
+                </button>
+
+            </div>
+
+            <div id="nicknameResult" class="nickname-result hidden">
+
+                <div class="result-heart">
+                    ❤️
+                </div>
+
+                <h3>
+                    Of course, it's YOU!
+                </h3>
+
+                <p>
+                    No matter what I call you,
+                    you're always my one and only Sulochana.
+                </p>
+
+                <button id="enterHeartBtn" class="romantic-btn">
+
+                    Enter My Heart 💌
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PAGE 4: GRAND BIRTHDAY REVEAL
+    ====================================== -->
+
+    <section id="birthdayPage" class="page birthday-page hidden">
+
+        <canvas id="fireworksCanvas"></canvas>
+
+        <div class="birthday-content">
+
+            <p class="birthday-intro">
+                Today, we celebrate someone extraordinary...
+            </p>
+
+            <div class="birthday-crown">
+                👑
+            </div>
+
+            <h1 class="birthday-heading">
+
+                HAPPY BIRTHDAY
+
+                <span>
+                    SULOCHANA RAUT
+                </span>
+
+            </h1>
+
+            <div class="birthday-hearts">
+                💗 ❤️ 💗
+            </div>
+
+            <p class="birthday-special-text">
+
+                To the girl who makes
+                my ordinary world extraordinary.
+
+            </p>
+
+            <p class="birthday-dedication">
+
+                For my Sanu, Motuu & Kanxu,
+                with all my love. ❤️
+
+            </p>
+
+            <button id="exploreWorldBtn" class="romantic-btn">
+
+                Explore Our Little World 💕
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         MAIN WEBSITE
+    ====================================== -->
+
+    <main id="mainWebsite" class="hidden">
+
+
+        <!-- =====================================
+             MEMORY ALBUM
+        ====================================== -->
+
+        <section id="albumSection" class="content-section album-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    CHAPTER ONE
+                </p>
+
+                <h2>
+                    Our Little Book of Memories
+                    <span>📖</span>
+                </h2>
+
+                <p>
+                    Every picture holds a moment.
+                    Every moment holds a feeling.
+                    And every memory with you
+                    is something I treasure.
+                </p>
+
+            </div>
+
+            <div class="album-container reveal">
+
+                <!-- Album Cover -->
+
+                <div id="albumCover" class="album-cover">
+
+                    <div class="album-cover-decoration">
+                        🌸
+                    </div>
+
+                    <h3>
+                        Our Little Forever
+                    </h3>
+
+                    <p>
+                        Ankit & Sulochana
+                    </p>
+
+                    <div class="album-cover-heart">
+                        ❤️
+                    </div>
+
+                    <button id="openAlbumBtn" class="album-open-btn">
+
+                        Open Our Memories 📖
+
+                    </button>
+
+                </div>
+
+
+                <!-- Album Pages -->
+
+                <div id="albumBook" class="album-book hidden">
+
+                    <div id="albumPages" class="album-pages">
+
+                        <!-- Photo pages generated by JavaScript -->
+
+                    </div>
+
+                    <div class="album-controls">
+
+                        <button id="prevPageBtn" aria-label="Previous album page">
+                            ❮
+                        </button>
+
+                        <span id="albumPageNumber">
+                            Page 1
+                        </span>
+
+                        <button id="nextPageBtn" aria-label="Next album page">
+                            ❯
+                        </button>
+
+                    </div>
+
+                    <p class="album-swipe-hint">
+                        Swipe left or right to explore our memories 💗
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             MINI LOVE MOVIE
+        ====================================== -->
+
+        <section id="movieSection" class="content-section movie-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    OUR LITTLE CINEMA
+                </p>
+
+                <h2>
+                    A Little Movie About You 🎬
+                </h2>
+
+                <p>
+                    Some memories deserve
+                    to be watched again and again.
+                </p>
+
+            </div>
+
+            <div class="movie-container reveal">
+
+                <div class="movie-screen">
+
+                    <img
+                        id="movieImage"
+                        src=""
+                        alt="Our beautiful memories">
+
+                    <div class="movie-overlay">
+
+                        <p id="movieCaption">
+                            Every moment with you is special.
+                        </p>
+
+                    </div>
+
+                    <button id="playMovieBtn" class="movie-play-btn" aria-label="Play memory movie">
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+                <div class="movie-progress">
+
+                    <div id="movieProgressBar"></div>
+
+                </div>
+
+                <p class="movie-dedication">
+                    Starring my favourite person,
+                    Sulochana Raut. ❤️
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+     OUR REAL LOVE STORY ❤️
+     ANKIT & SULOCHANA
+====================================== -->
+
+<section id="timelineSection" class="content-section timeline-section">
+
+    <div class="section-heading reveal">
+
+        <p class="section-tag">
+            OUR BEAUTIFUL JOURNEY
+        </p>
+
+        <h2>
+            The Story Of Us 💞
+        </h2>
+
+        <p>
+            Every love story has its own beginning.
+            Ours began with a beautiful meeting,
+            a little "Hi", a sweet "Hello",
+            and feelings that slowly became
+            something truly special. ❤️
+        </p>
+
+    </div>
+
+    <div class="timeline">
+
+        <!-- FIRST MEETING -->
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-icon">
+                🛕
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>
+                    The Day We Met ❤️
+                </h3>
+
+                <p>
+                    I still remember the day
+                    we first met at Pashupatinath.
+                </p>
+
+                <p>
+                    Tyo din Pashupati ma timilai
+                    pahilo patak bheteko moment
+                    aaja pani mero lagi
+                    ekdam special chha.
+                </p>
+
+                <p>
+                    Ani tyo din timro haat
+                    pahilo patak samateko...
+                    I don't think I'll ever
+                    forget that feeling. 🥹❤️
+                </p>
+
+                <p>
+                    Maybe it was just
+                    a simple moment for the world,
+                    but for me,
+                    it became one of the
+                    most beautiful memories
+                    of my life.
+                </p>
+
+                <p class="story-highlight">
+                    "At Pashupatinath,
+                    I held your hand for the first time,
+                    not knowing how special
+                    you would become to me." 💗
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FIRST CONVERSATION -->
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-icon">
+                💬
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>
+                    A Little Hi, A Sweet Hello 💌
+                </h3>
+
+                <p>
+                    Sometimes the most beautiful
+                    stories begin with
+                    the simplest words.
+                </p>
+
+                <p>
+                    Maile timilai
+                    pahila "Hi" bhaneko thiye.
+                </p>
+
+                <p>
+                    Ani ek din pachhi
+                    timro "Hello" bhanera
+                    message aayo. 🥹💗
+                </p>
+
+                <p>
+                    Tyo sano message
+                    mero lagi kati special
+                    thiyo bhanera
+                    sayad timilai thaha pani chhaina.
+                </p>
+
+                <p>
+                    That little "Hello"
+                    became the beginning
+                    of conversations
+                    I never wanted to end.
+                </p>
+
+                <p class="story-highlight">
+                    "Who knew that one little Hello
+                    could become the beginning
+                    of something so beautiful?" ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SPECIAL PERSON -->
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-icon">
+                💗
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>
+                    When You Became My Favourite Person 🌸
+                </h3>
+
+                <p>
+                    Bistarai hamro kura
+                    badhdai gayo.
+                </p>
+
+                <p>
+                    Timro message aauda
+                    aafai smile aauna thalyo.
+                </p>
+
+                <p>
+                    Timisanga kura garnu
+                    mero din ko
+                    sabai bhanda ramailo
+                    moment banna thalyo.
+                </p>
+
+                <p>
+                    I don't know exactly
+                    when it happened,
+                    but somewhere between
+                    our little conversations
+                    and beautiful moments,
+                    you became my favourite person.
+                </p>
+
+                <p>
+                    Ani aaja timi
+                    mero life ko
+                    ekdam important
+                    part banisakeki chhau,
+                    Sulochana. ❤️
+                </p>
+
+                <p class="story-highlight">
+                    "I didn't plan to fall for you.
+                    My heart simply found
+                    something beautiful in you." 💕
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- OUR FUTURE -->
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-icon">
+                ♾️
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>
+                    Our Story Is Still Being Written ♾️
+                </h3>
+
+                <p>
+                    From that first meeting
+                    at Pashupatinath...
+                </p>
+
+                <p>
+                    To your first "Hello"...
+                </p>
+
+                <p>
+                    And all the little moments
+                    that followed...
+                </p>
+
+                <p>
+                    Every memory with you
+                    has become a beautiful
+                    part of my story.
+                </p>
+
+                <p>
+                    Sanu, ma chahanchhu
+                    ki aune din haruma pani
+                    hami dherai ramra
+                    memories banauna sakau.
+                </p>
+
+                <p>
+                    More smiles,
+                    more laughter,
+                    more beautiful conversations,
+                    and more moments
+                    worth remembering. ❤️
+                </p>
+
+                <p class="story-highlight">
+                    "Our story started with a meeting,
+                    grew through little conversations,
+                    and continues with every
+                    beautiful moment we share." 💗
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="timeline-ending reveal">
+
+        <span>❤️</span>
+
+        <h3>
+            From Pashupatinath to My Heart
+        </h3>
+
+        <p>
+            Some meetings are ordinary.
+            Ours became a memory
+            I'll always treasure.
+        </p>
+
+        <p class="timeline-signature">
+            Ankit ❤️ Sulochana
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+        <!-- =====================================
+             LOVE LETTER
+        ====================================== -->
+
+        <section id="letterSection" class="content-section letter-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    STRAIGHT FROM MY HEART
+                </p>
+
+                <h2>
+                    A Letter From Ankit 💌
+                </h2>
+
+                <p>
+                    Some feelings deserve
+                    more than just a simple message.
+                </p>
+
+            </div>
+
+            <div class="letter-container reveal">
+
+                <button id="openLetterBtn" class="love-envelope">
+
+                    <span class="envelope-decoration">
+                        ❤️
+                    </span>
+
+                    <span>
+                        To My Favourite Person
+                    </span>
+
+                    <small>
+                        Tap to open
+                    </small>
+
+                </button>
+
+
+                <article id="loveLetter" class="love-letter hidden">
+
+                    <h3>
+                        My Dearest Sulochana, ❤️
+                    </h3>
+
+                    <p>
+                        Happy Birthday, my love!
+                    </p>
+
+                    <p>
+                        I wish I could explain
+                        how much you mean to me
+                        in just a few words,
+                        but some feelings are
+                        simply too beautiful
+                        to fit into sentences.
+                    </p>
+
+                    <p>
+                        Timro muskan mero lagi
+                        sabai bhanda pyaro kura ho.
+                        Timi khusi huda
+                        malai pani khusi lagchha.
+                    </p>
+
+                    <p>
+                        Sanu, timi mero life ma
+                        aayepachhi dherai
+                        ordinary moments pani
+                        special lagna thaleka chhan.
+                    </p>
+
+                    <p>
+                        Ma perfect chhaina,
+                        tara timilai bujhna,
+                        respect garna,
+                        support garna ra
+                        khusi rakhna
+                        sadhai prayas garnechhu.
+                    </p>
+
+                    <p>
+                        Yo birthday ma
+                        mero euta matra wish chha:
+                        timro life happiness,
+                        success, good health
+                        ra beautiful memories le
+                        bharipurna hos.
+                    </p>
+
+                    <p>
+                        No matter where life takes us,
+                        I hope we continue
+                        creating beautiful moments
+                        together.
+                    </p>
+
+                    <p class="letter-special">
+
+                        Happy Birthday,
+                        my Sanu, my Motuu,
+                        my Kanxu. ❤️
+
+                    </p>
+
+                    <div class="letter-signature">
+
+                        Forever yours,
+                        <span>Ankit 💗</span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             20 REASONS I LOVE YOU
+        ====================================== -->
+
+        <section id="reasonsSection" class="content-section reasons-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    TWENTY LITTLE REASONS
+                </p>
+
+                <h2>
+                    Reasons You're So Special 💗
+                </h2>
+
+                <p>
+                    Tap each card to discover
+                    a little reason why
+                    you mean so much to me.
+                </p>
+
+            </div>
+
+            <div id="reasonsGrid" class="reasons-grid">
+
+                <!-- Generated by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             JAR OF LOVE
+        ====================================== -->
+
+        <section id="loveJarSection" class="content-section jar-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    LITTLE WORDS, BIG FEELINGS
+                </p>
+
+                <h2>
+                    A Jar Full Of Love 🫙
+                </h2>
+
+                <p>
+                    For the days when
+                    you need a little extra smile.
+                </p>
+
+            </div>
+
+            <div class="jar-container reveal">
+
+                <button id="loveJarBtn" class="love-jar" aria-label="Open a love note">
+
+                    <span class="jar-lid"></span>
+
+                    <span class="jar-body">
+
+                        <span class="jar-hearts">
+                            💗 💕 ❤️
+                        </span>
+
+                        <span class="jar-label">
+                            Love Notes
+                        </span>
+
+                    </span>
+
+                </button>
+
+                <p class="jar-instruction">
+                    Tap the jar to receive a little love 💌
+                </p>
+
+                <div id="jarMessage" class="jar-message hidden"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             SCRATCH CARD
+        ====================================== -->
+
+        <section id="scratchSection" class="content-section scratch-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    A SECRET JUST FOR YOU
+                </p>
+
+                <h2>
+                    Scratch To Reveal 🎀
+                </h2>
+
+                <p>
+                    There's a little secret
+                    hiding beneath this card.
+                </p>
+
+            </div>
+
+            <div class="scratch-container reveal">
+
+                <div class="scratch-card">
+
+                    <div class="scratch-message">
+
+                        <span>💗</span>
+
+                        <h3>
+                            You Are My Favourite Forever
+                        </h3>
+
+                        <p>
+                            I Love You, Sulochana! ❤️
+                        </p>
+
+                    </div>
+
+                    <canvas id="scratchCanvas"></canvas>
+
+                </div>
+
+                <p class="scratch-hint">
+                    Use your finger or mouse to scratch 💕
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FLOWER GARDEN
+        ====================================== -->
+
+        <section id="gardenSection" class="content-section garden-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    A GARDEN MADE WITH LOVE
+                </p>
+
+                <h2>
+                    Flowers For My Princess 🌷
+                </h2>
+
+                <p>
+                    If I could,
+                    I'd give you every beautiful
+                    flower in the world.
+                </p>
+
+            </div>
+
+            <div class="garden-container reveal">
+
+                <div id="flowerGarden" class="flower-garden">
+
+                    <!-- Flowers generated by JavaScript -->
+
+                </div>
+
+                <p id="gardenMessage" class="garden-message">
+
+                    Tap the flowers and watch love bloom 🌸
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FUTURE BUCKET LIST
+        ====================================== -->
+
+        <section id="dreamsSection" class="content-section dreams-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    LITTLE DREAMS
+                </p>
+
+                <h2>
+                    Moments I Hope We Share 💞
+                </h2>
+
+                <p>
+                    Not promises of a perfect life,
+                    just beautiful moments
+                    I hope we get to experience together.
+                </p>
+
+            </div>
+
+            <div class="dreams-grid">
+
+                <div class="dream-card reveal">
+                    🌅
+                    <p>Watch a beautiful sunset together</p>
+                </div>
+
+                <div class="dream-card reveal">
+                    ☕
+                    <p>Have a peaceful coffee date</p>
+                </div>
+
+                <div class="dream-card reveal">
+                    📸
+                    <p>Take hundreds of silly pictures</p>
+                </div>
+
+                <div class="dream-card reveal">
+                    🌧️
+                    <p>Walk together on a rainy day</p>
+                </div>
+
+                <div class="dream-card reveal">
+                    🎂
+                    <p>Celebrate more birthdays together</p>
+                </div>
+
+                <div class="dream-card reveal">
+                    🌍
+                    <p>Explore beautiful places together</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             BIRTHDAY CAKE
+        ====================================== -->
+
+        <section id="cakeSection" class="content-section cake-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    MAKE A LITTLE WISH
+                </p>
+
+                <h2>
+                    Make A Wish, Princess 🎂
+                </h2>
+
+                <p>
+                    Close your eyes,
+                    think of something beautiful,
+                    and blow out the candle.
+                </p>
+
+            </div>
+
+            <div class="cake-container reveal">
+
+                <div class="birthday-cake">
+
+                    <button id="cakeCandle" class="cake-candle" aria-label="Blow out the candle">
+
+                        <span id="candleFlame" class="candle-flame"></span>
+
+                    </button>
+
+                    <div class="cake-layer cake-top"></div>
+
+                    <div class="cake-layer cake-middle"></div>
+
+                    <div class="cake-layer cake-bottom"></div>
+
+                    <div class="cake-plate"></div>
+
+                </div>
+
+                <p id="cakeWishMessage">
+                    Tap the candle to make your wish ✨
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FINAL GIFT
+        ====================================== -->
+
+        <section id="giftSection" class="content-section gift-section">
+
+            <div class="section-heading reveal">
+
+                <p class="section-tag">
+                    ONE LAST SURPRISE
+                </p>
+
+                <h2>
+                    Something Special For You 🎁
+                </h2>
+
+                <p>
+                    I saved one little surprise
+                    just for the end.
+                </p>
+
+            </div>
+
+            <div class="gift-container reveal">
+
+                <button id="openGiftBtn" class="gift-box" aria-label="Open birthday gift">
+
+                    <span class="gift-lid"></span>
+
+                    <span class="gift-body"></span>
+
+                    <span class="gift-ribbon"></span>
+
+                    <span class="gift-bow">🎀</span>
+
+                </button>
+
+                <p>
+                    Tap the gift to open your surprise 💗
+                </p>
+
+                <div id="giftMessage" class="gift-message hidden">
+
+                    <h2>
+                        I Love You, Sulochana! ❤️
+                    </h2>
+
+                    <p>
+                        The greatest gift
+                        I could ever wish for
+                        is seeing you happy.
+                    </p>
+
+                    <h3>
+                        Ankit ❤️ Sulochana
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FOREVER SKY
+        ====================================== -->
+
+        <section id="skySection" class="content-section sky-section">
+
+            <canvas id="starsCanvas"></canvas>
+
+            <div class="sky-content reveal">
+
+                <p class="section-tag">
+                    UNDER THE SAME SKY
+                </p>
+
+                <h2>
+                    Our Little Forever 🌌
+                </h2>
+
+                <p>
+                    Even under a million stars,
+                    I'd still choose you.
+                </p>
+
+                <div class="forever-stars">
+
+                    <div class="special-star">
+
+                        <span>⭐</span>
+
+                        <p>Ankit</p>
+
+                    </div>
+
+                    <div class="star-connection">
+                        ❤️
+                    </div>
+
+                    <div class="special-star">
+
+                        <span>⭐</span>
+
+                        <p>Sulochana</p>
+
+                    </div>
+
+                </div>
+
+                <h3>
+                    Some stories are too beautiful
+                    to ever truly end.
+                </h3>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             CINEMATIC ENDING
+        ====================================== -->
+
+        <section id="endingSection" class="content-section ending-section">
+
+            <div class="ending-content reveal">
+
+                <p class="ending-small">
+                    A LITTLE LOVE STORY
+                </p>
+
+                <h2>
+                    Our Little Forever
+                </h2>
+
+                <div class="ending-heart">
+                    ❤️
+                </div>
+
+                <div class="movie-credits">
+
+                    <p>
+                        Starring
+                    </p>
+
+                    <h3>
+                        Sulochana Raut 👑
+                    </h3>
+
+                    <p>
+                        Created With Love By
+                    </p>
+
+                    <h3>
+                        Ankit ❤️
+                    </h3>
+
+                    <p>
+                        A Beautiful Soul From
+                    </p>
+
+                    <h3>
+                        Dolakha, Nepal 🌸
+                    </h3>
+
+                    <p>
+                        Our Story
+                    </p>
+
+                    <h3>
+                        Still Being Written... ♾️
+                    </h3>
+
+                </div>
+
+                <p class="ending-quote">
+
+                    "The End?
+                    No, just another beautiful beginning."
+
+                </p>
+
+                <button id="replayBtn" class="romantic-btn">
+
+                    Replay Our Story 💗
+
+                </button>
+
+                <button id="downloadCardBtn" class="secondary-btn">
+
+                    Save Your Birthday Card 💌
+
+                </button>
+
+                <p class="final-signature">
+
+                    Forever yours,
+                    <span>Ankit ❤️</span>
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer class="website-footer">
+
+            <p>
+                Made with endless love for Sulochana 💗
+            </p>
+
+            <p>
+                Ankit ❤️ Sulochana
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================
+         PHOTO FULLSCREEN MODAL
+    ====================================== -->
+
+    <div id="photoModal" class="photo-modal hidden">
+
+        <button id="closePhotoModal" class="close-modal" aria-label="Close photo">
+            ×
+        </button>
+
+        <img id="modalPhoto" src="" alt="Beautiful memory">
+
+        <p id="modalCaption"></p>
+
+    </div>
+
+
+    <!-- =====================================
+         CONFETTI CONTAINER
+    ====================================== -->
+
+    <div id="confettiContainer"></div>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="main.js" defer></script>
+
+</body>
+
+</html>
