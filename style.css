@@ -3282,3 +3282,978 @@ select {
 }
 
 /* REDUCED MOTION ACCESSIBILITY IS PRESERVED */
+/* ==========================================================
+   OUR LITTLE FOREVER
+   MIDNIGHT ROMANCE CINEMATIC UPGRADE
+
+   Ankit ❤️ Sulochana
+
+   Preserves existing layout, classes and interactions
+   ========================================================== */
+
+
+/* ================= THEME ================= */
+
+:root {
+  --midnight-plum: #211329;
+  --rose-pink: #F08BB8;
+  --soft-pink: #FFB6D5;
+  --lavender: #C8A2E8;
+  --pearl-white: #FFF0F5;
+
+  --pink: #F08BB8;
+  --pink-dark: #E47DAE;
+  --pink-light: #FFB6D5;
+  --pink-pale: #FFDDEB;
+
+  --text: #FFF0F5;
+  --muted: #D9BDD9;
+
+  --dark-bg: #211329;
+  --dark-surface: #291934;
+  --dark-card: #30203B;
+  --dark-card-light: #392546;
+
+  --dark-border: rgba(200, 162, 232, 0.22);
+
+  --shadow:
+    0 15px 45px rgba(0, 0, 0, 0.25);
+
+  --shadow-strong:
+    0 25px 70px rgba(0, 0, 0, 0.38);
+}
+
+
+/* ================= GLOBAL ================= */
+
+html {
+  background: var(--midnight-plum);
+}
+
+body {
+  background: var(--midnight-plum);
+  color: var(--pearl-white);
+}
+
+::selection {
+  background: var(--rose-pink);
+  color: var(--midnight-plum);
+}
+
+
+/* ================= BACKGROUND EFFECT LAYERS ================= */
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#floatingHearts {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#petalsContainer {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Keep all content above background decorations */
+
+.page,
+#mainWebsite {
+  position: relative;
+  z-index: 2;
+}
+
+.page {
+  isolation: isolate;
+}
+
+.content-section {
+  isolation: isolate;
+}
+
+
+/* ================= MIDNIGHT BACKGROUNDS ================= */
+
+.welcome-page {
+  background:
+    radial-gradient(
+      ellipse at 50% 30%,
+      rgba(240, 139, 184, 0.19),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 85%,
+      rgba(200, 162, 232, 0.12),
+      transparent 50%
+    ),
+    linear-gradient(
+      145deg,
+      #211329,
+      #2D1938,
+      #211329
+    );
+}
+
+.calendar-page,
+.nickname-page {
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(200, 162, 232, 0.13),
+      transparent 55%
+    ),
+    linear-gradient(
+      145deg,
+      #211329,
+      #2D1938
+    );
+}
+
+.birthday-page {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(240, 139, 184, 0.23),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(200, 162, 232, 0.12),
+      transparent 45%
+    ),
+    #211329;
+}
+
+.content-section,
+.content-section:nth-child(even),
+.content-section:nth-child(odd) {
+  background:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(240, 139, 184, 0.07),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 85% 80%,
+      rgba(200, 162, 232, 0.07),
+      transparent 50%
+    ),
+    linear-gradient(
+      145deg,
+      #211329,
+      #291934
+    ) !important;
+}
+
+
+/* ================= PREMIUM TYPOGRAPHY ================= */
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.section-heading h2 {
+  color: var(--soft-pink);
+
+  text-shadow:
+    0 0 30px rgba(240, 139, 184, 0.2);
+}
+
+.section-tag {
+  color: var(--lavender);
+}
+
+.section-heading > p:last-child {
+  color: var(--muted);
+}
+
+.content-section p {
+  color: var(--muted);
+}
+
+.content-section h3 {
+  color: var(--soft-pink);
+}
+
+
+/* ================= WELCOME ================= */
+
+.welcome-glow {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(240, 139, 184, 0.1),
+      transparent 60%
+    );
+}
+
+.welcome-title {
+  color: var(--soft-pink);
+
+  text-shadow:
+    0 0 45px rgba(240, 139, 184, 0.18);
+}
+
+.welcome-title span {
+  color: var(--lavender);
+}
+
+.welcome-small-text {
+  color: var(--rose-pink);
+}
+
+.typing-container {
+  color: var(--soft-pink);
+}
+
+.welcome-description,
+.welcome-footer {
+  color: var(--muted);
+}
+
+.heart-glow {
+  background: rgba(240, 139, 184, 0.22);
+  filter: blur(40px);
+}
+
+.main-heart {
+  filter:
+    drop-shadow(
+      0 0 25px rgba(240, 139, 184, 0.35)
+    );
+}
+
+
+/* ================= BUTTONS ================= */
+
+.romantic-btn {
+  background:
+    linear-gradient(
+      135deg,
+      #F08BB8,
+      #D977AA
+    );
+
+  color: #211329;
+
+  box-shadow:
+    0 12px 35px rgba(240, 139, 184, 0.24);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.romantic-btn:hover {
+  box-shadow:
+    0 15px 45px rgba(240, 139, 184, 0.36);
+}
+
+.secondary-btn {
+  background: rgba(200, 162, 232, 0.07);
+  border-color: var(--lavender);
+  color: var(--pearl-white);
+}
+
+.secondary-btn:hover {
+  background: var(--lavender);
+  color: var(--midnight-plum);
+}
+
+
+/* ================= GLASS CARDS ================= */
+
+.calendar-card,
+.question-card,
+.timeline-card,
+.timeline-ending,
+.love-letter,
+.jar-message,
+.gift-message,
+.dream-card,
+.nepali-calendar {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(57, 37, 70, 0.96),
+      rgba(35, 21, 44, 0.98)
+    );
+
+  border:
+    1px solid rgba(200, 162, 232, 0.22);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(240, 139, 184, 0.05);
+
+  color: var(--pearl-white);
+}
+
+
+/* ================= CALENDAR ================= */
+
+.calendar-title,
+.calendar-question {
+  color: var(--soft-pink);
+}
+
+.calendar-description {
+  color: var(--muted);
+}
+
+.calendar-header select {
+  background: #392546;
+  color: var(--pearl-white);
+  border-color: rgba(200, 162, 232, 0.25);
+}
+
+.calendar-day {
+  background: #392546;
+  color: var(--pearl-white);
+  border-color: rgba(200, 162, 232, 0.2);
+}
+
+.calendar-day:hover {
+  background: #563560;
+}
+
+.calendar-day.selected {
+  background: var(--rose-pink);
+  color: var(--midnight-plum);
+  border-color: var(--rose-pink);
+}
+
+.calendar-weekdays span {
+  color: var(--lavender);
+}
+
+.selected-date {
+  color: var(--soft-pink);
+}
+
+.calendar-feedback.success {
+  color: #9CE7BE;
+}
+
+.calendar-feedback.error {
+  color: #FFB0C8;
+}
+
+
+/* ================= NICKNAME ================= */
+
+.question-card h2 {
+  color: var(--soft-pink);
+}
+
+.question-card > p {
+  color: var(--muted);
+}
+
+.nickname-btn {
+  background: #392546;
+  border-color: rgba(200, 162, 232, 0.25);
+  color: var(--pearl-white);
+}
+
+.nickname-btn:hover,
+.nickname-btn.selected {
+  background: var(--rose-pink);
+  color: var(--midnight-plum);
+}
+
+.nickname-result {
+  background: rgba(240, 139, 184, 0.1);
+  border: 1px solid rgba(240, 139, 184, 0.2);
+}
+
+
+/* ================= BIRTHDAY REVEAL ================= */
+
+.birthday-intro,
+.birthday-special-text,
+.birthday-dedication {
+  color: var(--pearl-white);
+}
+
+.birthday-heading {
+  color: var(--soft-pink);
+
+  text-shadow:
+    0 0 35px rgba(240, 139, 184, 0.25);
+}
+
+.birthday-heading span {
+  color: var(--lavender);
+
+  text-shadow:
+    0 0 35px rgba(200, 162, 232, 0.22);
+}
+
+
+/* ================= ALBUM ================= */
+
+.album-cover {
+  border-color: #795078;
+
+  background:
+    linear-gradient(
+      145deg,
+      #392546,
+      #875275,
+      #392546
+    );
+
+  box-shadow:
+    12px 18px 0 #1A0D22,
+    20px 28px 55px rgba(0, 0, 0, 0.4);
+}
+
+.album-open-btn {
+  background: var(--pearl-white);
+  color: var(--midnight-plum);
+}
+
+.album-pages {
+  background:
+    linear-gradient(
+      90deg,
+      #35233F,
+      #48304F 48%,
+      #1B1022 50%,
+      #48304F 52%,
+      #35233F
+    );
+}
+
+.album-page {
+  background: #30203B;
+}
+
+.album-page img {
+  border-color: #624363;
+}
+
+.album-caption,
+#albumPageNumber {
+  color: var(--soft-pink);
+}
+
+.album-ending-page h3 {
+  color: var(--soft-pink) !important;
+}
+
+.album-ending-page p {
+  color: var(--pearl-white) !important;
+}
+
+
+/* ================= VIDEO ================= */
+
+.movie-screen {
+  background: #160D1D;
+  border-color: #624363;
+
+  box-shadow:
+    0 0 35px rgba(200, 162, 232, 0.12);
+}
+
+#loveVideo {
+  background: #160D1D;
+}
+
+.movie-dedication,
+.movie-signature {
+  color: var(--soft-pink);
+}
+
+
+/* ================= TIMELINE ================= */
+
+.timeline::before {
+  background:
+    linear-gradient(
+      var(--lavender),
+      var(--rose-pink),
+      var(--lavender)
+    );
+}
+
+.timeline-card h3,
+.timeline-ending h3 {
+  color: var(--soft-pink);
+}
+
+.timeline-card p {
+  color: var(--muted);
+}
+
+.story-highlight {
+  background: rgba(200, 162, 232, 0.09);
+  border-left-color: var(--lavender);
+  color: var(--pearl-white) !important;
+}
+
+
+/* ================= LOVE LETTER ================= */
+
+.letter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.love-envelope {
+  margin-left: auto;
+  margin-right: auto;
+
+  background:
+    linear-gradient(
+      145deg,
+      #C66F9B,
+      #7A426E
+    );
+}
+
+.love-letter {
+  background:
+    linear-gradient(
+      145deg,
+      #392546,
+      #291934
+    );
+}
+
+.love-letter h3 {
+  color: var(--soft-pink);
+}
+
+.love-letter p {
+  color: var(--pearl-white);
+}
+
+.letter-special {
+  color: var(--soft-pink) !important;
+}
+
+.letter-signature {
+  color: var(--lavender);
+}
+
+
+/* ================= REASON CARDS ================= */
+
+.reason-front {
+  background:
+    linear-gradient(
+      145deg,
+      #493052,
+      #30203B
+    );
+
+  color: var(--soft-pink);
+}
+
+.reason-back {
+  background:
+    linear-gradient(
+      145deg,
+      #A75D89,
+      #6F3D75
+    );
+
+  color: var(--pearl-white);
+}
+
+
+/* ================= LOVE JAR ================= */
+
+.jar-message {
+  background: #392546;
+  color: var(--pearl-white);
+}
+
+.jar-label {
+  background: var(--pearl-white);
+  color: var(--midnight-plum);
+}
+
+
+/* ================= SCRATCH ================= */
+
+.scratch-card {
+  background: #392546;
+  border-color: #795078;
+}
+
+
+/* ================= GARDEN ================= */
+
+.flower-garden {
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(240, 139, 184, 0.15),
+      transparent 60%
+    ),
+    linear-gradient(
+      to bottom,
+      #30203B,
+      #392546 75%,
+      #25372C
+    );
+}
+
+
+/* ================= DREAMS ================= */
+
+.dream-card {
+  background:
+    linear-gradient(
+      145deg,
+      #392546,
+      #291934
+    );
+}
+
+.dream-card p {
+  color: var(--pearl-white);
+}
+
+
+/* ================= GIFT ================= */
+
+.gift-message {
+  background: #392546;
+}
+
+
+/* ================= NIGHT SKY ================= */
+
+.sky-section {
+  background:
+    radial-gradient(
+      circle at 50% 80%,
+      #56345F,
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      #170D20,
+      #211329
+    ) !important;
+}
+
+.sky-content h2 {
+  color: var(--soft-pink);
+}
+
+
+/* ================= ENDING ================= */
+
+.ending-section {
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(240, 139, 184, 0.13),
+      transparent 65%
+    ),
+    linear-gradient(
+      145deg,
+      #211329,
+      #30203B,
+      #211329
+    ) !important;
+}
+
+.ending-content > h2 {
+  color: var(--soft-pink);
+}
+
+.movie-credits h3 {
+  color: var(--lavender);
+}
+
+.ending-quote,
+.final-signature {
+  color: var(--soft-pink);
+}
+
+.website-footer {
+  background: #190E20;
+  border-top: 1px solid var(--dark-border);
+  color: var(--soft-pink);
+}
+
+
+/* ================= MUSIC PLAYER ================= */
+
+.music-player {
+  background: rgba(41, 25, 52, 0.96);
+
+  border:
+    1px solid rgba(200, 162, 232, 0.25);
+}
+
+#musicToggle {
+  background: var(--rose-pink);
+  color: var(--midnight-plum);
+}
+
+.music-title {
+  color: var(--pearl-white);
+}
+
+.music-subtitle {
+  color: var(--muted);
+}
+
+.music-visualizer span {
+  background: var(--lavender);
+}
+
+
+/* ==========================================================
+   TWINKLING SPARKLES
+   ========================================================== */
+
+.cinematic-sparkle {
+  position: absolute;
+
+  width: var(--sparkle-size, 3px);
+  height: var(--sparkle-size, 3px);
+
+  border-radius: 50%;
+
+  background: var(--sparkle-color, #FFB6D5);
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 7px var(--sparkle-color, #FFB6D5),
+    0 0 15px var(--sparkle-color, #FFB6D5);
+
+  animation:
+    cinematicTwinkle
+    var(--sparkle-duration, 4s)
+    ease-in-out
+    var(--sparkle-delay, 0s)
+    infinite;
+
+  will-change: opacity, transform;
+}
+
+@keyframes cinematicTwinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  45% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+
+  65% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+
+
+/* ==========================================================
+   FALLING ROSE PETALS
+   ========================================================== */
+
+.cinematic-petal {
+  position: absolute;
+
+  top: -50px;
+  left: var(--petal-left, 50%);
+
+  width: var(--petal-size, 15px);
+  height: calc(var(--petal-size, 15px) * 1.35);
+
+  border-radius:
+    75% 5% 75% 15%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #FFB6D5,
+      #F08BB8 65%,
+      #C876A5
+    );
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 8px rgba(240, 139, 184, 0.15);
+
+  animation:
+    cinematicPetalFall
+    var(--petal-duration, 8s)
+    linear
+    forwards;
+
+  pointer-events: none;
+
+  will-change: transform, opacity;
+}
+
+@keyframes cinematicPetalFall {
+  0% {
+    transform:
+      translate3d(0, -30px, 0)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.75;
+  }
+
+  50% {
+    transform:
+      translate3d(
+        var(--petal-drift, 45px),
+        50vh,
+        0
+      )
+      rotate(180deg);
+
+    opacity: 0.7;
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform:
+      translate3d(
+        var(--petal-end, -25px),
+        110vh,
+        0
+      )
+      rotate(390deg);
+
+    opacity: 0;
+  }
+}
+
+
+/* ==========================================================
+   CINEMATIC TEXT REVEAL
+   ========================================================== */
+
+.cinematic-text {
+  opacity: 0;
+
+  transform: translate3d(0, 22px, 0);
+
+  transition:
+    opacity 0.85s cubic-bezier(.2, .7, .2, 1),
+    transform 0.85s cubic-bezier(.2, .7, .2, 1);
+
+  transition-delay: var(--cinematic-delay, 0ms);
+}
+
+.cinematic-text.cinematic-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Existing scroll reveal stays functional */
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ================= PERFORMANCE ================= */
+
+.cinematic-sparkle,
+.cinematic-petal {
+  pointer-events: none;
+}
+
+@media (max-width: 650px) {
+
+  .content-section {
+    background:
+      linear-gradient(
+        145deg,
+        #211329,
+        #291934
+      ) !important;
+  }
+
+  .album-pages {
+    background: #30203B;
+  }
+
+  .music-player {
+    background: rgba(41, 25, 52, 0.97);
+  }
+
+  .cinematic-text {
+    transform: translate3d(0, 14px, 0);
+  }
+
+  .cinematic-petal {
+    box-shadow: none;
+  }
+}
+
+
+/* ================= REDUCED MOTION ================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cinematic-sparkle,
+  .cinematic-petal {
+    display: none !important;
+    animation: none !important;
+  }
+
+  .cinematic-text,
+  .cinematic-text.cinematic-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* END OF MIDNIGHT CINEMATIC UPGRADE */
