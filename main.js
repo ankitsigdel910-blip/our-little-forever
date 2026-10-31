@@ -626,7 +626,7 @@ function renderAlbum() {
     const image = document.createElement("img");
 
     image.src = PHOTO_PATHS[index];
-    image.alt = `Sulochana memory ${index + 1}`;
+    image.alt = `Sanu memory ${index + 1}`;
     image.loading = "lazy";
     image.decoding = "async";
     image.draggable = false;
@@ -1056,7 +1056,7 @@ function initializeScratch() {
       <div class="scratch-photo-message">
         <span>💗</span>
         <h3>My Favourite Forever</h3>
-        <p>I Love You, Sulochana! ❤️</p>
+        <p>I Love You, Sanu! ❤️</p>
       </div>
     </div>
   `;
@@ -1302,7 +1302,7 @@ function initializeGarden() {
 
       if (bloomed === flowers.length && message) {
         message.textContent =
-          "Every flower blooms for you, Sulochana! 🌸❤️";
+          "Every flower blooms for you, Sanu! 🌸❤️";
       }
     });
 
